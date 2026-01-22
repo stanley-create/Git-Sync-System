@@ -158,17 +158,22 @@ class GitSync:
         
         logger.info("4. Attempting to push with upstream tracking...")
         try:
+            # First try a normal push
             self.run_git(["push", "--set-upstream", "origin", "main"], check=True)
-            logger.info("Repair completed successfully.")
-        except Exception:
-            logger.info("Conflict detected or push failed. Running rebase...")
-            self.run_git(["pull", "origin", "main", "--rebase"], check=False)
-            logger.info("Retrying push...")
+            logger.info("Repair completed successfully!")
+        except Exception as e:
+            logger.info(f"Standard push failed ({e}). Attempting to sync with remote history...")
             try:
-                self.run_git(["push"])
-                logger.info("Repair completed successfully after rebase.")
-            except Exception as e:
-                logger.warning(f"Repair finished, but push still failing: {e}")
+                # Common issue: unrelated histories or remote has a README. Try pulling first.
+                logger.info("Pulling remote changes (allowing unrelated histories)...")
+                self.run_git(["pull", "origin", "main", "--rebase", "--allow-unrelated-histories"], check=False)
+                
+                logger.info("Retrying push...")
+                self.run_git(["push", "-u", "origin", "main"], check=True)
+                logger.info("Repair completed successfully after synchronization!")
+            except Exception as final_e:
+                logger.error(f"Repair failed: {final_e}")
+                logger.warning("TIP: Check if your GitHub repository is initialized and your internet connection is stable.")
 
     def is_ahead(self):
         """Checks if there are local commits not yet pushed to remote."""

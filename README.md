@@ -49,8 +49,9 @@ You can control this script directly from Obsidian using the **Shell Commands** 
    - Example: `"C:\Users\<YourName>\Documents\Git-Sync-System\start.bat" --silent`
 4. Set an alias (e.g., "Start Git Sync").
 
-### 3. Auto-Run
-1. Click the **Events** tab for that command.
+### 3. Configure Events (Triggers)
+1. Click the **Events** tab (or lightning bolt icon) for that command.
+2. Click **Add new event**.
 3. Select **"Obsidian starts"** from the list.
 4. This ensures the Python monitoring script starts as soon as you open your vault.
 
