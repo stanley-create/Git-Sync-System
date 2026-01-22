@@ -27,7 +27,7 @@ class GitSync:
         self.repo_path = repo_path
         self.idle_threshold = idle_threshold
         self.remote_url = remote_url
-        self.interval = 5
+        self.interval = 20
         self.pending_changes_since = None
 
     def run_git(self, command, check=True):

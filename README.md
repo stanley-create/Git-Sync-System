@@ -106,7 +106,7 @@ This will allow you to re-enter your GitHub Email and Username.
 
 ## How it Works
 - **Identity Check**: Always ensures Git knows who you are before syncing.
-- **Checks changes**: Every 5 seconds.
+- **Checks changes**: Every 20 seconds.
 - **Syncs**: If changes are detected and you stop typing for 60 seconds (idle), it commits and pushes.
 - **Conflicts**: Automatically tries `git pull --rebase` to avoid merge conflicts.
 - **Upstream Setup**: Automatically handles the first push to a new repository.
