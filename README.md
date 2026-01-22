@@ -6,6 +6,7 @@ A robust, cross-platform (Windows & macOS) Python script to automatically synchr
 - **Smart Idle Detection**: Only checks modified files, significantly improving performance for large vaults.
 - **Robust Logging**: actions are logged to `sync.log`.
 - **Auto-Initialization**: Detects if your vault is not a git repo and helps you set it up.
+- **Repair Mode**: Built-in tool to fix common proxy and connection issues.
 - **Background Sync**: Can register itself on Windows Startup.
 
 ## Prerequisites
@@ -24,7 +25,7 @@ git clone https://github.com/stanley-create/Git-Sync-System
 1.  **Double-click `start.bat`**.
 2.  The first time you run it, it will **ask you to enter the path** to your Obsidian Vault.
     - Example: `C:\Users\Name\Documents\MyVault`
-3.  It will also ask for your GitHub repository URL (optional if you haven't linked it yet).
+3.  It will also ask for your GitHub repository URL (optional but recommended).
 4.  The script will save your settings and start monitoring.
 
 ## Run at Startup (Windows)
@@ -46,7 +47,6 @@ You can control this script directly from Obsidian using the **Shell Commands** 
 3. In the command field, enter the **absolute path** to your `start.bat` file.
    - **Important**: Wrap the path in quotes if it has spaces.
    - Example: `"C:\Users\2026\.gemini\antigravity\playground\stellar-sojourner\start.bat"`
-   *(Note: Point to where you downloaded this script, NOT your vault path)*
 4. Set an alias (e.g., "Start Git Sync").
 
 ### 3. Auto-Run
@@ -73,22 +73,34 @@ Settings are saved to `config.json`.
 }
 ```
 
-## Troubleshooting
+## Troubleshooting & Repair
 
-### 1. GitHub Repository is Empty?
-If you just set up the system and your GitHub repository is still empty:
-1. Make sure you have **pushed** the initial files. The script handles this after the first "idle period" (60 seconds of no typing).
-2. If it still doesn't upload, try running `git push -u origin main` manually inside your Vault folder once.
+If you encounter **500 errors**, **403 forbidden**, or **failed to push** errors, we have built-in tools.
 
-### 2. Network / Proxy Issues (500 Error)
-If you encounter network errors or the sync fails to connect, try clearing your Git proxy settings:
+### 1. Built-in Repair
+In a terminal, run:
+```bash
+python sync.py --repair
+```
+**This will automatically:**
+- Clear stuck Git proxy settings.
+- Reset the remote connection to GitHub.
+- Link your local branch to the cloud.
+
+### 2. Manual Proxy Clear
+If you prefer manual fix:
 ```bash
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
-Then try running `start.bat` again.
+
+### 3. Identity Issues
+If Git doesn't know who you are, run:
+```bash
+python sync.py --setup
+```
 
 ## How it Works
-- **Checks changes**: Every 10 seconds.
+- **Checks changes**: Every 20 seconds.
 - **Syncs**: If changes are detected and you stop typing for 60 seconds (idle), it commits and pushes.
 - **Conflicts**: Automatically tries `git pull --rebase` to avoid merge conflicts.

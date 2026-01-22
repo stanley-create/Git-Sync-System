@@ -7,18 +7,17 @@ import sys
 import json
 import logging
 import platform
-import shutil
 
 # Constants
 CONFIG_FILE = "config.json"
 LOG_FILE = "sync.log"
-DEFAULT_INTERVAL = 10
+DEFAULT_INTERVAL = 20
 DEFAULT_IDLE_THRESHOLD = 60
 
 # Setup Logging
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
+    format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler(LOG_FILE, encoding='utf-8'),
         logging.StreamHandler(sys.stdout)
@@ -27,11 +26,11 @@ logging.basicConfig(
 logger = logging.getLogger("GitSync")
 
 class GitSync:
-    def __init__(self, repo_path, idle_threshold=DEFAULT_IDLE_THRESHOLD, interval=DEFAULT_INTERVAL, remote_url=None):
+    def __init__(self, repo_path, idle_threshold=DEFAULT_IDLE_THRESHOLD, remote_url=None):
         self.repo_path = os.path.abspath(repo_path)
         self.idle_threshold = idle_threshold
-        self.interval = interval
         self.remote_url = remote_url
+        self.interval = DEFAULT_INTERVAL
         self.pending_changes_since = None
 
     def run_git(self, args, check=True):
@@ -43,7 +42,7 @@ class GitSync:
                 check=check,
                 capture_output=True,
                 text=True,
-                errors='replace' # Handle non-utf-8 output (e.g. localized git messages) without crashing
+                errors='replace' # Handle non-utf-8 output
             )
             return result.stdout.strip()
         except subprocess.CalledProcessError as e:
@@ -62,7 +61,7 @@ class GitSync:
         logger.info(f"Initializing git repository in {self.repo_path}...")
         try:
             self.run_git(["init"])
-            self.run_git(["branch", "-M", "main"], check=False) # standard main branch
+            self.run_git(["branch", "-M", "main"], check=False)
             
             # Create .gitignore if not exists
             gitignore_path = os.path.join(self.repo_path, ".gitignore")
@@ -77,7 +76,7 @@ class GitSync:
             
             # Initial commit
             self.run_git(["add", "."])
-            self.run_git(["commit", "-m", "Initial commit by Git-Sync-System"], check=False)
+            self.run_git(["commit", "-m", "Initial commit from Obsidian Git Sync"], check=False)
             logger.info("Performed initial commit. Pushing to remote...")
             try:
                 self.run_git(["push", "-u", "origin", "main"], check=False)
@@ -99,11 +98,8 @@ class GitSync:
             
             files = []
             for line in status.splitlines():
-                # Format: XY PATH
-                # XY are status codes (e.g., M , ??, A )
                 if len(line) > 3:
                     file_path = line[3:].strip()
-                    # Handle quoted paths (git sometimes quotes paths with spaces/non-ascii)
                     if file_path.startswith('"') and file_path.endswith('"'):
                         file_path = file_path[1:-1]
                     files.append(file_path)
@@ -125,23 +121,73 @@ class GitSync:
                     pass
         return max_mtime
 
+    def check_identity(self):
+        """Checks if Git user.email and user.name are configured."""
+        try:
+            email = self.run_git(["config", "user.email"], check=False)
+            name = self.run_git(["config", "user.name"], check=False)
+            
+            if not email or not name:
+                logger.warning("Git identity not configured.")
+                if not email:
+                    email = input("Enter your GitHub Email: ").strip()
+                    subprocess.run(["git", "config", "--global", "user.email", email], check=True)
+                if not name:
+                    name = input("Enter your GitHub Username: ").strip()
+                    subprocess.run(["git", "config", "--global", "user.name", name], check=True)
+                logger.info("Git identity configured successfully.")
+        except Exception as e:
+            logger.error(f"Error checking identity: {e}")
+
+    def repair_connection(self):
+        """Force refresh network cache and reset remote URL if needed."""
+        logger.info("Starting connection repair...")
+        
+        # 1. Clear proxy settings (common cause for 500 errors)
+        logger.info("1. Clearing Git proxy settings...")
+        subprocess.run(["git", "config", "--global", "--unset", "http.proxy"], check=False)
+        subprocess.run(["git", "config", "--global", "--unset", "https.proxy"], check=False)
+        
+        # 2. Set autoSetupRemote
+        logger.info("2. Setting push.autoSetupRemote to true...")
+        subprocess.run(["git", "config", "--global", "push.autoSetupRemote", "true"], check=False)
+        
+        if self.remote_url:
+            logger.info(f"3. Resetting remote URL to: {self.remote_url}")
+            self.run_git(["remote", "set-url", "origin", self.remote_url], check=False)
+        
+        logger.info("4. Attempting to push with upstream tracking...")
+        try:
+            # We use subprocess.run directly for push to show real-time error messages if needed
+            self.run_git(["push", "--set-upstream", "origin", "main"], check=True)
+            logger.info("Repair completed successfully.")
+        except Exception:
+            logger.info("Conflict detected or push failed. Running rebase...")
+            self.run_git(["pull", "origin", "main", "--rebase"], check=False)
+            logger.info("Retrying push...")
+            try:
+                self.run_git(["push"])
+                logger.info("Repair completed successfully after rebase.")
+            except Exception as e:
+                logger.warning(f"Repair finished, but push still failing: {e}")
+
     def sync(self):
         """Main check and sync logic."""
-        # 1. Check for local modifications
+        self.check_identity()
+        
         modified_files = self.get_modified_files()
 
         if modified_files:
             current_time = time.time()
             last_mtime = self.get_latest_mtime(modified_files)
             
-            # If we simply can't find an mtime (e.g. deleted files), assume 'now'
             if last_mtime == 0:
                 last_mtime = current_time
 
             idle_time = current_time - last_mtime
 
             if idle_time >= self.idle_threshold:
-                logger.info(f"Idle for {int(idle_time)}s. Syncing changes...")
+                logger.info(f"Changes detected. Idle for {int(idle_time)}s. Syncing...")
                 self.commit_and_push()
                 self.pending_changes_since = None
             else:
@@ -150,8 +196,6 @@ class GitSync:
                     logger.info(f"Changes detected. Waiting for idle ({self.idle_threshold}s)...")
         else:
             self.pending_changes_since = None
-            # Only pull if we are clean
-            # To avoid spamming log, we could simple do it quietly
             self.pull_changes()
 
     def commit_and_push(self):
@@ -160,7 +204,7 @@ class GitSync:
             timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             self.run_git(["commit", "-m", f"Auto sync: {timestamp}"])
             
-            self.pull_changes() # Pull before push to resolve simple conflicts
+            self.pull_changes()
             
             logger.info("Pushing to remote...")
             self.run_git(["push"])
@@ -170,7 +214,6 @@ class GitSync:
 
     def pull_changes(self):
         try:
-            # quietly try to pull
             self.run_git(["pull", "--rebase"], check=False)
         except Exception:
             pass
@@ -186,7 +229,6 @@ class GitSync:
             key_path = r"Software\Microsoft\Windows\CurrentVersion\Run"
             key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path, 0, winreg.KEY_SET_VALUE)
             
-            # Use pythonw.exe to run without window
             python_exe = sys.executable.replace("python.exe", "pythonw.exe")
             script_path = os.path.abspath(__file__)
             cmd = f'"{python_exe}" "{script_path}" "{self.repo_path}" --idle_threshold {self.idle_threshold}'
@@ -218,30 +260,25 @@ def main():
     parser = argparse.ArgumentParser(description="Auto-sync Obsidian vault with GitHub.")
     parser.add_argument("--setup", action="store_true", help="Run interactive setup wizard.")
     parser.add_argument("--install-startup", action="store_true", help="Add to Windows startup.")
+    parser.add_argument("--repair", action="store_true", help="Repair Git connection (proxy & remote URL).")
     parser.add_argument("repo_path", nargs="?", help="Path to the Obsidian vault.")
     parser.add_argument("--idle_threshold", type=int, help="Seconds of inactivity before syncing.")
     
     args = parser.parse_args()
     config = load_config()
 
-    # Resolve Configuration
     repo_path = args.repo_path or config.get("repo_path")
     idle_threshold = args.idle_threshold or config.get("idle_threshold", 60)
     remote_url = config.get("remote_url")
 
-    # If no path configured, strictly prompt the user
-    if not repo_path:
+    if not repo_path or args.setup:
         print("--- Obsidian Git Sync Setup ---")
-        while not repo_path:
-            repo_path = input("Enter the absolute path to your Obsidian vault: ").strip()
-            if not repo_path:
-                print("Path cannot be empty.")
+        if not repo_path:
+            while not repo_path:
+                repo_path = input("Enter the absolute path to your Obsidian vault: ").strip()
         
-        # Ask for remote URL optional
-        if not remote_url:
-            remote_url = input("Enter GitHub Remote URL (leave empty if already set): ").strip()
+        remote_url = input(f"Enter GitHub Remote URL [{remote_url or 'None'}]: ").strip() or remote_url
         
-        # Save this new config
         config = {
             "repo_path": repo_path,
             "idle_threshold": idle_threshold,
@@ -249,19 +286,22 @@ def main():
         }
         save_config(config)
 
-    # Initialize System
     syncer = GitSync(repo_path, idle_threshold, remote_url=remote_url)
     
+    if args.repair:
+        syncer.repair_connection()
+        return
+
     if not syncer.is_git_repo():
         logger.warning(f"{repo_path} is not a git repository.")
         choice = input("Do you want to initialize it now? [y/N]: ").strip().lower()
         if choice == 'y':
+            syncer.check_identity()
             if not remote_url:
-                 remote_url = input("Enter GitHub clone URL to link to (or enter to skip): ").strip()
+                 remote_url = input("Enter GitHub clone URL: ").strip()
                  syncer.remote_url = remote_url
             syncer.initialize_repo()
         else:
-            logger.error("Cannot sync a non-git repository.")
             return
 
     if args.install_startup:
