@@ -22,10 +22,12 @@ git clone https://github.com/stanley-create/Git-Sync-System
 ## Quick Start
 
 1.  **Double-click `start.bat`**.
-2.  The first time you run it, it will **ask you to enter the path** to your Obsidian Vault.
+2.  The first time you run it, it will **ask for your GitHub Email and Username**.
+    - This is required so Git knows who is making the backups.
+3.  Then, it will **ask you to enter the path** to your Obsidian Vault.
     - Example: `C:\Users\Name\Documents\MyVault`
-3.  It will also ask for your GitHub repository URL (optional if you haven't linked it yet).
-4.  The script will save your settings and start monitoring.
+4.  It will also ask for your GitHub repository URL (optional but recommended).
+5.  The script will save your settings and start monitoring.
 
 ## Run at Startup (Windows)
 To have this run automatically when you log in:
@@ -73,7 +75,38 @@ Settings are saved to `config.json`.
 }
 ```
 
+## Troubleshooting & Repair
+
+If you encounter **500 errors**, **403 forbidden**, or **failed to push** errors, we have a built-in repair tool.
+
+### 2. Manual Git Identity Setup
+If the script doesn't prompt you or you prefer to set it up manually, run these commands in CMD:
+```dos
+git config --global user.email "your-email@example.com"
+git config --global user.name "Your Name"
+```
+
+### 3. Manual Repair
+Open a terminal in the folder and run:
+```bash
+python sync.py --repair
+```
+**This will automatically:**
+- Clear stuck proxy settings.
+- Reset the remote connection to GitHub.
+- Link your local branch to the cloud.
+- Automatically resolve "failed to push" conflicts by rebasing.
+
+### 2. Identity Issues
+If your commits don't show your name, or Git complains about "Author identity unknown", run:
+```bash
+python sync.py --setup
+```
+This will allow you to re-enter your GitHub Email and Username.
+
 ## How it Works
-- **Checks changes**: Every 10 seconds.
+- **Identity Check**: Always ensures Git knows who you are before syncing.
+- **Checks changes**: Every 5 seconds.
 - **Syncs**: If changes are detected and you stop typing for 60 seconds (idle), it commits and pushes.
 - **Conflicts**: Automatically tries `git pull --rebase` to avoid merge conflicts.
+- **Upstream Setup**: Automatically handles the first push to a new repository.
