@@ -4,9 +4,10 @@ A robust, cross-platform (Windows & macOS) Python script to automatically synchr
 
 ## New Features
 - **Smart Idle Detection**: Only checks modified files, significantly improving performance for large vaults.
+- **Batch Upload Support**: Automatically splits large sets of files (like initial syncs) into chunks of 500 to ensure stable uploads.
 - **Robust Logging**: actions are logged to `sync.log`.
 - **Auto-Initialization**: Detects if your vault is not a git repo and helps you set it up.
-- **Repair Mode**: Built-in tool to fix common proxy and connection issues.
+- **Repair Mode**: Built-in tool to fix common proxy, connection, and "unrelated history" issues.
 - **Background Sync**: Can register itself on Windows Startup.
 
 ## Prerequisites
@@ -26,7 +27,10 @@ git clone https://github.com/stanley-create/Git-Sync-System
 2.  The first time you run it, it will **ask you to enter the path** to your Obsidian Vault.
     - Example: `C:\Users\Name\Documents\MyVault`
 3.  It will also ask for your GitHub repository URL (optional but recommended).
-4.  The script will save your settings and start monitoring.
+4.  **Recommended for First Sync (Large Vaults)**:
+    - If you have thousands of files or created your GitHub repo with a README, it is highly recommended to select **Option 3 (Repair Connection)** in the menu.
+    - This will handle initial conflicts and start the **Batch Upload** process (one commit every 500 files) to ensure a stable first upload.
+5.  Once the initial sync is complete, future updates will be handled automatically by **Option 1 (Start Syncing)**.
 
 ## Run at Startup (Windows)
 To have this run automatically when you log in:
@@ -90,8 +94,10 @@ python sync.py --repair
 ```
 **This will automatically:**
 - Clear stuck Git proxy settings.
+- Increase Git `postBuffer` to 500MB (allows larger file uploads).
 - Reset the remote connection to GitHub.
-- Link your local branch to the cloud.
+- **Handle Unrelated Histories**: Pulls remote changes (like a GitHub README) and merges them safely.
+- **Trigger Batch Upload**: Divides large pushes into sequential chunks with progress tracking.
 
 ### 2. Manual Proxy Clear
 If you prefer manual fix:
@@ -109,4 +115,6 @@ python sync.py --setup
 ## How it Works
 - **Checks changes**: Every 20 seconds.
 - **Syncs**: If changes are detected and you stop typing for 60 seconds (idle), it commits and pushes.
+- **Batching**: If more than 500 files are detected, it uploads them in sequential batches to prevent timeouts.
 - **Conflicts**: Automatically tries `git pull --rebase` to avoid merge conflicts.
+- **Resilient**: If a batch push fails, it will retry and resume progress from the last successful chunk.
