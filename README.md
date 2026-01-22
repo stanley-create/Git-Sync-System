@@ -72,8 +72,9 @@ To make the script run on startup:
 To prevent a black CMD window from popping up and interrupting your work:
 
 1. In the command settings, look for **Output handling**.
-2. Set **Output channel** for stdout/stderr to **"Ignore"**.
-3. Set **Output handling mode** to **"Realtime"** to ensure long-running processes are handled correctly.
+2. Set **Output channel** to **"Ignore"** or **"Status bar message"**.
+3. Ensure the execution is set to run in the **Background**.
+4. (Optional) Under **Shell selection**, ensure it is using the default Windows CMD/PowerShell.
 
 ![Shell Output Settings](assets/shell_output_settings.png)
 
@@ -94,7 +95,7 @@ If the script doesn't seem to trigger, you can manually run the command once usi
 Settings are saved to `config.json`.
 ```json
 {
-    "repo_path": "C:\\Users\\2026\\Documents\\Obsidian Vault",
+    "repo_path": "C:\\Users\\Name\\Documents\\Obsidian Vault",
     "idle_threshold": 60,
     "remote_url": "https://github.com/your/repo.git"
 }
@@ -104,14 +105,7 @@ Settings are saved to `config.json`.
 
 If you encounter **500 errors**, **403 forbidden**, or **failed to push** errors, we have a built-in repair tool.
 
-### 2. Manual Git Identity Setup
-If the script doesn't prompt you or you prefer to set it up manually, run these commands in CMD:
-```dos
-git config --global user.email "your-email@example.com"
-git config --global user.name "Your Name"
-```
-
-### 3. Manual Repair
+### 1. Manual Repair
 Open a terminal in the folder and run:
 ```bash
 python sync.py --repair
@@ -128,6 +122,13 @@ If your commits don't show your name, or Git complains about "Author identity un
 python sync.py --setup
 ```
 This will allow you to re-enter your GitHub Email and Username.
+
+### 3. Manual Git Identity Setup (Terminal)
+If you prefer to set it up manually via command line, run these in CMD:
+```dos
+git config --global user.email "your-email@example.com"
+git config --global user.name "Your Name"
+```
 
 ## How it Works
 - **Identity Check**: Always ensures Git knows who you are before syncing.
