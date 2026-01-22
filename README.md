@@ -29,12 +29,9 @@ A simple, cross-platform (Windows & macOS) Python script to automatically synchr
 3.  Future runs will use these saved settings automatically.
 
 ### macOS / Linux
-1.  Open Terminal.
-2.  Run the start script:
-    ```bash
-    ./start.sh
-    ```
-    *(You may need to run `chmod +x start.sh` once to make it executable)*.
+1.  Double-click **`start.command`** (macOS) or run **`./start.sh`** (Linux/Terminal).
+    *(Note: On first run, you might need to right-click `start.command` and select Open to bypass security warning)*.
+2.  The script will verify your settings and start syncing.
 
 ## Usage (Manual / Command Line)
 You can still run the script manually if you prefer:
