@@ -46,7 +46,7 @@ You can control this script directly from Obsidian using the **Shell Commands** 
 2. Click **New command**.
 3. In the command field, enter the **absolute path** to your `start.bat` file.
    - **Important**: Wrap the path in quotes if it has spaces.
-   - Example: `"C:\Users\2026\.gemini\antigravity\playground\stellar-sojourner\start.bat" --silent`
+   - Example: `"C:\Users\<YourName>\Documents\Git-Sync-System\start.bat" --silent`
 4. Set an alias (e.g., "Start Git Sync").
 
 ### 3. Auto-Run
@@ -67,7 +67,7 @@ You can control this script directly from Obsidian using the **Shell Commands** 
 Settings are saved to `config.json`.
 ```json
 {
-    "repo_path": "C:\\Users\\2026\\Documents\\Obsidian Vault",
+    "repo_path": "C:\\Users\\<YourName>\\Documents\\Obsidian Vault",
     "idle_threshold": 60,
     "remote_url": "https://github.com/your/repo.git"
 }
