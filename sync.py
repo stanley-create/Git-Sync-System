@@ -79,7 +79,7 @@ class GitSync:
             self.run_git(["commit", "-m", "Initial commit from Obsidian Git Sync"], check=False)
             logger.info("Performed initial commit. Pushing to remote...")
             try:
-                self.run_git(["push", "-u", "origin", "main"], check=False)
+                self.run_git(["push", "-u", "origin", "main"], check=True)
                 logger.info("Initial push successful.")
             except Exception as e:
                 logger.warning(f"Initial push failed: {e}. It will retry during normal sync.")
@@ -158,7 +158,6 @@ class GitSync:
         
         logger.info("4. Attempting to push with upstream tracking...")
         try:
-            # We use subprocess.run directly for push to show real-time error messages if needed
             self.run_git(["push", "--set-upstream", "origin", "main"], check=True)
             logger.info("Repair completed successfully.")
         except Exception:
@@ -171,11 +170,22 @@ class GitSync:
             except Exception as e:
                 logger.warning(f"Repair finished, but push still failing: {e}")
 
+    def is_ahead(self):
+        """Checks if there are local commits not yet pushed to remote."""
+        try:
+            ahead = self.run_git(["rev-list", "--count", "origin/main..main"], check=False)
+            if ahead and ahead.isdigit() and int(ahead) > 0:
+                return True
+        except Exception:
+            pass
+        return False
+
     def sync(self):
         """Main check and sync logic."""
         self.check_identity()
         
         modified_files = self.get_modified_files()
+        ahead = self.is_ahead()
 
         if modified_files:
             current_time = time.time()
@@ -187,13 +197,16 @@ class GitSync:
             idle_time = current_time - last_mtime
 
             if idle_time >= self.idle_threshold:
-                logger.info(f"Changes detected. Idle for {int(idle_time)}s. Syncing...")
+                logger.info(f"Idle for {int(idle_time)}s. Syncing changes...")
                 self.commit_and_push()
                 self.pending_changes_since = None
             else:
                 if self.pending_changes_since is None:
                     self.pending_changes_since = current_time
                     logger.info(f"Changes detected. Waiting for idle ({self.idle_threshold}s)...")
+        elif ahead:
+            logger.info("Local commits detected that are not on GitHub. Retrying push...")
+            self.commit_and_push()
         else:
             self.pending_changes_since = None
             self.pull_changes()
@@ -202,7 +215,7 @@ class GitSync:
         try:
             self.run_git(["add", "."])
             timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-            self.run_git(["commit", "-m", f"Auto sync: {timestamp}"])
+            self.run_git(["commit", "-m", f"Auto sync: {timestamp}"], check=False) # check=False in case no changes to commit
             
             self.pull_changes()
             
