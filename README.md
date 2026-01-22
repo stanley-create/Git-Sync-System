@@ -17,27 +17,44 @@ A simple, cross-platform (Windows & macOS) Python script to automatically synchr
 ## Installation
 1.  Clone this repository or download the script.
     ```bash
-    git clone https://github.com/yourusername/ObsidianGitSync.git
-    cd ObsidianGitSync
+    git clone https://github.com/stanley-create/Git-Sync-System.git
+    cd Git-Sync-System
     ```
-2.  (Optional) Create a virtual environment (not strictly necessary as it uses standard library only).
 
-## Usage
+## Usage (Easy Method)
 
-Run the script from your terminal:
+### Windows
+1.  Double-click **`start.bat`**.
+2.  The first time you run it, it will ask for your **Obsidian Vault path** and settings.
+3.  Future runs will use these saved settings automatically.
+
+### macOS / Linux
+1.  Open Terminal.
+2.  Run the start script:
+    ```bash
+    ./start.sh
+    ```
+    *(You may need to run `chmod +x start.sh` once to make it executable)*.
+
+## Usage (Manual / Command Line)
+You can still run the script manually if you prefer:
 
 ```bash
-python sync.py /path/to/your/obsidian/vault
+python sync.py --setup
+```
+Or with arguments:
+```bash
+python sync.py [path_to_vault] --idle_threshold 60
 ```
 
-### Options
-- `repo_path`: Path to your local git repository (Obsidian vault). Defaults to current directory.
-- `--idle_threshold`: Seconds of inactivity (no edits) to wait before syncing changes. Default is 60 seconds.
-- `--interval`: How often (in seconds) the script checks for changes. Default is 10 seconds.
-
-Example: Sync after 5 minutes of inactivity:
-```bash
-python sync.py C:\Users\YourName\Documents\ObsidianVault --idle_threshold 300
+### Configuration
+Settings are saved to `config.json`. You can edit this file directly to change your preferences:
+```json
+{
+    "repo_path": "C:\\Users\\User\\Documents\\ObsidianVault",
+    "idle_threshold": 60,
+    "interval": 10
+}
 ```
 
 ## Running in Background
