@@ -43,7 +43,7 @@ class GitSync:
                 check=check,
                 capture_output=True,
                 text=True,
-                encoding='utf-8' # Ensure UTF-8 for non-English filenames
+                errors='replace' # Handle non-utf-8 output (e.g. localized git messages) without crashing
             )
             return result.stdout.strip()
         except subprocess.CalledProcessError as e:
