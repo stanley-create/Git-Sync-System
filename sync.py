@@ -78,29 +78,61 @@ class GitSync:
                     continue
         return last_mtime
 
+    def check_identity(self):
+        """Checks if Git user.email and user.name are configured."""
+        email = subprocess.run(["git", "config", "user.email"], capture_output=True, text=True).stdout.strip()
+        name = subprocess.run(["git", "config", "user.name"], capture_output=True, text=True).stdout.strip()
+        
+        if not email or not name:
+            logger.warning("Git identity not configured.")
+            if not email:
+                email = input("Enter your GitHub Email: ").strip()
+                subprocess.run(["git", "config", "--global", "user.email", email], check=True)
+            if not name:
+                name = input("Enter your GitHub Username: ").strip()
+                subprocess.run(["git", "config", "--global", "user.name", name], check=True)
+            logger.info("Git identity configured successfully.")
+
     def repair_connection(self):
         """Force refresh network cache and reset remote URL if needed."""
         logger.info("Starting connection repair...")
         
         # 1. Clear proxy settings (common cause for 500 errors)
-        logger.info("Clearing Git proxy settings...")
+        logger.info("1. Clearing Git proxy settings...")
         subprocess.run(["git", "config", "--global", "--unset", "http.proxy"], check=False)
         subprocess.run(["git", "config", "--global", "--unset", "https.proxy"], check=False)
         
-        # 2. Reset Remote URL if origin exist
+        # 2. Set autoSetupRemote (prevents "no upstream" errors)
+        logger.info("2. Setting push.autoSetupRemote to true...")
+        subprocess.run(["git", "config", "--global", "push.autoSetupRemote", "true"], check=False)
+        
+        # 3. Reset Remote URL if origin exist
         if self.remote_url:
-            logger.info(f"Resetting remote URL to: {self.remote_url}")
+            logger.info(f"3. Resetting remote URL to: {self.remote_url}")
             self.run_git(["remote", "set-url", "origin", self.remote_url], check=False)
         
-        # 3. Try to pull
-        logger.info("Attempting to pull changes...")
-        res = self.run_git(["pull"], check=False)
-        if res is not None:
-            logger.info("Repair completed successfully.")
+        # 4. Try to push with upstream tracking
+        logger.info("4. Attempting to push with upstream tracking...")
+        push_res = subprocess.run(["git", "push", "--set-upstream", "origin", "main"], cwd=self.repo_path, capture_output=True, text=True)
+        
+        if push_res.returncode == 0:
+            logger.info("Repair completed successfully. Branch is linked and pushed.")
         else:
-            logger.warning("Repair finished, but pull still failing. Check your credentials or network.")
+            if "failed to push some refs" in push_res.stderr:
+                logger.info("Conflict detected (remote has changes). Running rebase...")
+                self.run_git(["pull", "origin", "main", "--rebase"], check=False)
+                logger.info("Retrying push...")
+                if self.run_git(["push"]) is not None:
+                    logger.info("Repair completed successfully after rebase.")
+                else:
+                    logger.warning("Push still failing after rebase. Please check manually.")
+            else:
+                logger.warning(f"Repair finished, but push failed: {push_res.stderr.strip()}")
 
     def sync(self):
+        # Ensure identity is set before syncing
+        self.check_identity()
+        
         try:
             process = subprocess.run(
                 ["git", "status", "--porcelain"],
@@ -147,7 +179,12 @@ class GitSync:
 
     def pull_changes(self):
         try:
-            self.run_git(["pull", "--rebase"], check=False)
+            # Check if remote exists before pulling
+            res = self.run_git(["pull", "--rebase"], check=False)
+            if res is None:
+                # Silently fail pull if no remote or other issues, 
+                # but log it if it's a real error (not "no remote" type things)
+                pass
         except Exception:
             pass
 
@@ -204,6 +241,7 @@ def main():
     idle_threshold = args.idle_threshold or config.get("idle_threshold", 60)
     remote_url = config.get("remote_url")
 
+    # Resolve interactive setup
     if not repo_path or args.setup:
         print("--- Obsidian Git Sync Setup ---")
         if not repo_path:
@@ -221,14 +259,17 @@ def main():
 
     syncer = GitSync(repo_path, idle_threshold, remote_url=remote_url)
     
-    if args.repair:
-        syncer.repair_connection()
-        return
+    if args.repair or args.setup:
+        syncer.check_identity()
+        if args.repair:
+            syncer.repair_connection()
+            return
 
     if not syncer.is_git_repo():
         logger.warning(f"{repo_path} is not a git repository.")
         choice = input("Do you want to initialize it now? [y/N]: ").strip().lower()
         if choice == 'y':
+            syncer.check_identity()
             if not remote_url:
                  remote_url = input("Enter GitHub clone URL: ").strip()
                  syncer.remote_url = remote_url
