@@ -11,132 +11,79 @@ import shutil
 
 # Constants
 CONFIG_FILE = "config.json"
-LOG_FILE = "sync.log"
-DEFAULT_INTERVAL = 10
-DEFAULT_IDLE_THRESHOLD = 60
 
-# Setup Logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_FILE, encoding='utf-8'),
-        logging.StreamHandler(sys.stdout)
-    ]
-)
-logger = logging.getLogger("GitSync")
+def run_git_command(command, repo_path):
+    """Executes a git command in the specified repository path."""
+    try:
+        result = subprocess.run(
+            command,
+            cwd=repo_path,
+            check=True,
+            capture_output=True,
+            text=True,
+            shell=False
+        )
+        return result.stdout.strip()
+    except subprocess.CalledProcessError as e:
+        if "up to date" not in e.stderr and "no changes" not in e.stderr:
+             pass
+        return None
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return None
 
-class GitSync:
-    def __init__(self, repo_path, idle_threshold=DEFAULT_IDLE_THRESHOLD, interval=DEFAULT_INTERVAL, remote_url=None):
-        self.repo_path = os.path.abspath(repo_path)
-        self.idle_threshold = idle_threshold
-        self.interval = interval
-        self.remote_url = remote_url
-        self.pending_changes_since = None
+def get_last_modified_time(repo_path):
+    """Recursively finds the most recent modification time in the directory."""
+    last_mtime = 0
+    for root, dirs, files in os.walk(repo_path):
+        if '.git' in dirs:
+            dirs.remove('.git') # Ignore .git directory
+        for f in files:
+            full_path = os.path.join(root, f)
+            try:
+                mtime = os.path.getmtime(full_path)
+                if mtime > last_mtime:
+                    last_mtime = mtime
+            except OSError:
+                continue
+    return last_mtime
 
-    def run_git(self, args, check=True):
-        """Executes a git command in the repository."""
-        try:
-            result = subprocess.run(
-                ["git"] + args,
-                cwd=self.repo_path,
-                check=check,
-                capture_output=True,
-                text=True,
-                errors='replace' # Handle non-utf-8 output (e.g. localized git messages) without crashing
-            )
-            return result.stdout.strip()
-        except subprocess.CalledProcessError as e:
-            if "up to date" not in e.stderr and "no changes" not in e.stderr:
-                logger.debug(f"Git command failed: {' '.join(args)} | Error: {e.stderr.strip()}")
-            raise e
-        except Exception as e:
-            logger.error(f"Unexpected error running git: {e}")
-            raise
+def sync_repo(repo_path, idle_threshold):
+    timestamp = datetime.datetime.now().strftime("%H:%M:%S")
 
-    def is_git_repo(self):
-        return os.path.isdir(os.path.join(self.repo_path, ".git"))
+    # 1. Check status
+    try:
+        process = subprocess.run(
+            ["git", "status", "--porcelain"], 
+            cwd=repo_path, 
+            capture_output=True, 
+            text=True, 
+            check=False
+        )
+        status_output = process.stdout.strip()
+    except Exception as e:
+        print(f"[{timestamp}] Error checking status: {e}")
+        return
 
-    def initialize_repo(self):
-        """Initializes git repo and sets remote if provided."""
-        logger.info(f"Initializing git repository in {self.repo_path}...")
-        try:
-            self.run_git(["init"])
-            self.run_git(["branch", "-M", "main"], check=False) # standard main branch
-            
-            # Create .gitignore if not exists
-            gitignore_path = os.path.join(self.repo_path, ".gitignore")
-            if not os.path.exists(gitignore_path):
-                with open(gitignore_path, "w", encoding="utf-8") as f:
-                    f.write(".obsidian/workspace\n.obsidian/workspace-mobile\n.DS_Store\n")
-                logger.info("Created default .gitignore")
-
-            if self.remote_url:
-                self.run_git(["remote", "add", "origin", self.remote_url], check=False)
-                logger.info(f"Added remote origin: {self.remote_url}")
-            
-            # Initial commit
-            self.run_git(["add", "."])
-            self.run_git(["commit", "-m", "Initial commit by Git-Sync-System"], check=False)
-            logger.info("Performed initial commit.")
-
-        except Exception as e:
-            logger.error(f"Failed to initialize repository: {e}")
-
-    def get_modified_files(self):
-        """Returns a list of modified files using git status."""
-        try:
-            status = self.run_git(["status", "--porcelain"])
-            if not status:
-                return []
-            
-            files = []
-            for line in status.splitlines():
-                # Format: XY PATH
-                # XY are status codes (e.g., M , ??, A )
-                if len(line) > 3:
-                    file_path = line[3:].strip()
-                    # Handle quoted paths (git sometimes quotes paths with spaces/non-ascii)
-                    if file_path.startswith('"') and file_path.endswith('"'):
-                        file_path = file_path[1:-1]
-                    files.append(file_path)
-            return files
-        except Exception:
-            return []
-
-    def get_latest_mtime(self, files):
-        """Gets the most recent modification time among the specified files."""
-        max_mtime = 0
-        for rel_path in files:
-            full_path = os.path.join(self.repo_path, rel_path)
-            if os.path.exists(full_path):
-                try:
-                    mtime = os.path.getmtime(full_path)
-                    if mtime > max_mtime:
-                        max_mtime = mtime
-                except OSError:
-                    pass
-        return max_mtime
-
-    def sync(self):
-        """Main check and sync logic."""
-        # 1. Check for local modifications
-        modified_files = self.get_modified_files()
-
-        if modified_files:
-            current_time = time.time()
-            last_mtime = self.get_latest_mtime(modified_files)
-            
-            # If we simply can't find an mtime (e.g. deleted files), assume 'now'
-            if last_mtime == 0:
-                last_mtime = current_time
-
-            idle_time = current_time - last_mtime
-
-            if idle_time >= self.idle_threshold:
-                logger.info(f"Idle for {int(idle_time)}s. Syncing changes...")
-                self.commit_and_push()
-                self.pending_changes_since = None
+    if status_output:
+        last_mtime = get_last_modified_time(repo_path)
+        current_time = time.time()
+        idle_time = current_time - last_mtime
+        
+        if idle_time >= idle_threshold:
+            print(f"[{timestamp}] Changes detected. Idle for {int(idle_time)}s. Syncing...")
+            run_git_command(["git", "add", "."], repo_path)
+            commit_msg = f"Auto sync: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            run_git_command(["git", "commit", "-m", commit_msg], repo_path)
+            print(f"[{timestamp}] Committed changes.")
+            print(f"[{timestamp}] Pulling remote changes...")
+            pull_res = run_git_command(["git", "pull", "--rebase"], repo_path)
+            if pull_res is None:
+                print(f"[{timestamp}] Pull failed (conflict?). Please resolve manually.")
+                return 
+            print(f"[{timestamp}] Pushing to remote...")
+            if run_git_command(["git", "push"], repo_path):
+                print(f"[{timestamp}] Push successful.")
             else:
                 if self.pending_changes_since is None:
                     self.pending_changes_since = current_time
