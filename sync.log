@@ -1,0 +1,904 @@
+2026-01-22 20:57:09,006 [INFO] Configuration saved to config.json
+2026-01-22 20:57:09,007 [WARNING] C:\Users\cg102\Documents\Obsidian Vault is not a git repository.
+2026-01-22 20:57:41,130 [INFO] Initializing git repository in C:\Users\cg102\Documents\Obsidian Vault...
+2026-01-22 20:57:41,328 [INFO] Created default .gitignore
+2026-01-22 20:57:41,415 [INFO] Added remote origin: https://github.com/stanley-create/Notebook.git
+2026-01-22 20:57:58,172 [INFO] Performed initial commit.
+2026-01-22 20:57:58,172 [INFO] Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-22 20:57:58,173 [INFO] Idle Threshold: 60s
+2026-01-22 20:57:58,174 [INFO] Press Ctrl+C to stop.
+2026-01-22 20:57:58,248 [INFO] Changes detected. Waiting for idle (60s)...
+2026-01-22 20:58:48,636 [INFO] Idle for 67s. Syncing changes...
+2026-01-22 20:58:48,769 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 20:58:58,844 [INFO] Idle for 77s. Syncing changes...
+2026-01-22 20:58:58,947 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 20:59:09,020 [INFO] Idle for 87s. Syncing changes...
+2026-01-22 20:59:09,115 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 20:59:19,184 [INFO] Idle for 97s. Syncing changes...
+2026-01-22 20:59:19,290 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 20:59:29,379 [INFO] Idle for 108s. Syncing changes...
+2026-01-22 20:59:29,509 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 20:59:39,596 [INFO] Idle for 118s. Syncing changes...
+2026-01-22 20:59:39,777 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 20:59:49,862 [INFO] Idle for 128s. Syncing changes...
+2026-01-22 20:59:50,036 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:00:00,133 [INFO] Idle for 138s. Syncing changes...
+2026-01-22 21:00:00,261 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:00:10,341 [INFO] Idle for 149s. Syncing changes...
+2026-01-22 21:00:10,457 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:00:20,533 [INFO] Idle for 159s. Syncing changes...
+2026-01-22 21:00:20,659 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:00:30,747 [INFO] Idle for 169s. Syncing changes...
+2026-01-22 21:00:30,874 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:00:40,923 [INFO] Idle for 179s. Syncing changes...
+2026-01-22 21:00:41,027 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:00:51,105 [INFO] Idle for 189s. Syncing changes...
+2026-01-22 21:00:51,223 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:01:01,320 [INFO] Idle for 199s. Syncing changes...
+2026-01-22 21:01:01,465 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:01:11,551 [INFO] Idle for 210s. Syncing changes...
+2026-01-22 21:01:11,685 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:01:21,756 [INFO] Idle for 220s. Syncing changes...
+2026-01-22 21:01:21,888 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:01:31,965 [INFO] Idle for 230s. Syncing changes...
+2026-01-22 21:01:32,072 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:01:42,148 [INFO] Idle for 240s. Syncing changes...
+2026-01-22 21:01:42,269 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:01:52,350 [INFO] Idle for 251s. Syncing changes...
+2026-01-22 21:01:52,472 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:02:02,558 [INFO] Idle for 261s. Syncing changes...
+2026-01-22 21:02:02,689 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:02:12,775 [INFO] Idle for 271s. Syncing changes...
+2026-01-22 21:02:12,912 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:02:22,984 [INFO] Idle for 281s. Syncing changes...
+2026-01-22 21:02:23,088 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:02:33,172 [INFO] Idle for 291s. Syncing changes...
+2026-01-22 21:02:33,301 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:02:43,382 [INFO] Idle for 302s. Syncing changes...
+2026-01-22 21:02:43,512 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:02:53,566 [INFO] Idle for 312s. Syncing changes...
+2026-01-22 21:02:53,684 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:03:03,763 [INFO] Idle for 322s. Syncing changes...
+2026-01-22 21:03:03,868 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:03:13,958 [INFO] Idle for 332s. Syncing changes...
+2026-01-22 21:03:14,086 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:03:24,182 [INFO] Idle for 342s. Syncing changes...
+2026-01-22 21:03:24,305 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:03:34,396 [INFO] Idle for 353s. Syncing changes...
+2026-01-22 21:03:34,605 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:03:44,695 [INFO] Idle for 363s. Syncing changes...
+2026-01-22 21:03:44,826 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:03:54,909 [INFO] Idle for 373s. Syncing changes...
+2026-01-22 21:03:55,040 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:04:05,119 [INFO] Idle for 383s. Syncing changes...
+2026-01-22 21:04:05,237 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:04:15,307 [INFO] Idle for 393s. Syncing changes...
+2026-01-22 21:04:15,404 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:04:25,489 [INFO] Idle for 404s. Syncing changes...
+2026-01-22 21:04:25,646 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:04:35,724 [INFO] Idle for 414s. Syncing changes...
+2026-01-22 21:04:35,830 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:04:45,941 [INFO] Idle for 424s. Syncing changes...
+2026-01-22 21:04:46,116 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:04:56,190 [INFO] Idle for 434s. Syncing changes...
+2026-01-22 21:04:56,321 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:05:06,410 [INFO] Idle for 445s. Syncing changes...
+2026-01-22 21:05:06,526 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:05:16,614 [INFO] Idle for 455s. Syncing changes...
+2026-01-22 21:05:16,746 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:05:26,831 [INFO] Idle for 465s. Syncing changes...
+2026-01-22 21:05:26,951 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:05:37,022 [INFO] Idle for 475s. Syncing changes...
+2026-01-22 21:05:37,137 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:05:47,209 [INFO] Idle for 485s. Syncing changes...
+2026-01-22 21:05:47,305 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:05:57,395 [INFO] Idle for 496s. Syncing changes...
+2026-01-22 21:05:57,513 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:06:07,597 [INFO] Idle for 506s. Syncing changes...
+2026-01-22 21:06:07,718 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:06:17,805 [INFO] Idle for 516s. Syncing changes...
+2026-01-22 21:06:17,942 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:06:28,042 [INFO] Idle for 526s. Syncing changes...
+2026-01-22 21:06:28,162 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:06:38,248 [INFO] Idle for 536s. Syncing changes...
+2026-01-22 21:06:38,352 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:06:48,436 [INFO] Idle for 547s. Syncing changes...
+2026-01-22 21:06:48,539 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:06:58,620 [INFO] Idle for 557s. Syncing changes...
+2026-01-22 21:06:58,723 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:07:08,813 [INFO] Idle for 567s. Syncing changes...
+2026-01-22 21:07:08,928 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:07:19,003 [INFO] Idle for 577s. Syncing changes...
+2026-01-22 21:07:19,125 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:07:29,218 [INFO] Idle for 587s. Syncing changes...
+2026-01-22 21:07:29,329 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:07:39,402 [INFO] Idle for 598s. Syncing changes...
+2026-01-22 21:07:39,509 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:07:49,584 [INFO] Idle for 608s. Syncing changes...
+2026-01-22 21:07:49,697 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:07:59,775 [INFO] Idle for 618s. Syncing changes...
+2026-01-22 21:07:59,912 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:08:09,995 [INFO] Idle for 628s. Syncing changes...
+2026-01-22 21:08:10,132 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:08:20,206 [INFO] Idle for 638s. Syncing changes...
+2026-01-22 21:08:20,297 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:08:30,374 [INFO] Idle for 649s. Syncing changes...
+2026-01-22 21:08:30,476 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:08:40,555 [INFO] Idle for 659s. Syncing changes...
+2026-01-22 21:08:40,661 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:08:50,740 [INFO] Idle for 669s. Syncing changes...
+2026-01-22 21:08:50,841 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:09:00,933 [INFO] Idle for 679s. Syncing changes...
+2026-01-22 21:09:01,059 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:09:11,140 [INFO] Idle for 689s. Syncing changes...
+2026-01-22 21:09:11,252 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:09:21,344 [INFO] Idle for 700s. Syncing changes...
+2026-01-22 21:09:21,537 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:09:31,613 [INFO] Idle for 710s. Syncing changes...
+2026-01-22 21:09:31,718 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:09:41,793 [INFO] Idle for 720s. Syncing changes...
+2026-01-22 21:09:41,916 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:09:52,086 [INFO] Idle for 730s. Syncing changes...
+2026-01-22 21:09:52,189 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:10:02,274 [INFO] Idle for 740s. Syncing changes...
+2026-01-22 21:10:02,421 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:10:12,510 [INFO] Idle for 751s. Syncing changes...
+2026-01-22 21:10:12,649 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:10:22,728 [INFO] Idle for 761s. Syncing changes...
+2026-01-22 21:10:22,885 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:10:32,981 [INFO] Idle for 771s. Syncing changes...
+2026-01-22 21:10:33,120 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:10:43,220 [INFO] Idle for 781s. Syncing changes...
+2026-01-22 21:10:43,349 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:10:53,455 [INFO] Idle for 792s. Syncing changes...
+2026-01-22 21:10:53,608 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:11:03,702 [INFO] Idle for 802s. Syncing changes...
+2026-01-22 21:11:03,830 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:11:13,918 [INFO] Idle for 812s. Syncing changes...
+2026-01-22 21:11:14,062 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:11:24,140 [INFO] Idle for 822s. Syncing changes...
+2026-01-22 21:11:24,259 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:11:34,334 [INFO] Idle for 833s. Syncing changes...
+2026-01-22 21:11:34,468 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:11:44,541 [INFO] Idle for 843s. Syncing changes...
+2026-01-22 21:11:44,657 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:11:54,736 [INFO] Idle for 853s. Syncing changes...
+2026-01-22 21:11:54,859 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:12:04,940 [INFO] Idle for 863s. Syncing changes...
+2026-01-22 21:12:05,077 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:12:15,194 [INFO] Idle for 873s. Syncing changes...
+2026-01-22 21:12:15,383 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:38:20,063 [INFO] Idle for 2438s. Syncing changes...
+2026-01-22 21:38:20,243 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:38:30,357 [INFO] Idle for 2449s. Syncing changes...
+2026-01-22 21:38:30,630 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:38:40,758 [INFO] Idle for 2459s. Syncing changes...
+2026-01-22 21:38:40,934 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:38:51,043 [INFO] Idle for 2469s. Syncing changes...
+2026-01-22 21:38:51,193 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:39:01,289 [INFO] Idle for 2479s. Syncing changes...
+2026-01-22 21:39:01,461 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:39:11,532 [INFO] Idle for 2490s. Syncing changes...
+2026-01-22 21:39:11,678 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:39:21,724 [INFO] Idle for 2500s. Syncing changes...
+2026-01-22 21:39:21,832 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:39:31,936 [INFO] Idle for 2510s. Syncing changes...
+2026-01-22 21:39:32,183 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:39:42,259 [INFO] Idle for 2520s. Syncing changes...
+2026-01-22 21:39:42,381 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:39:52,475 [INFO] Idle for 2531s. Syncing changes...
+2026-01-22 21:39:52,591 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:40:02,687 [INFO] Idle for 2541s. Syncing changes...
+2026-01-22 21:40:02,840 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:40:12,919 [INFO] Idle for 2551s. Syncing changes...
+2026-01-22 21:40:13,067 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:40:23,177 [INFO] Idle for 2561s. Syncing changes...
+2026-01-22 21:40:23,420 [ERROR] Sync failed: argument of type 'NoneType' is not a container or iterable
+2026-01-22 21:40:32,715 [INFO] Stopping auto-sync.
+2026-01-22 21:52:30,252 [INFO] Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-22 21:52:30,254 [INFO] Idle Threshold: 60s
+2026-01-22 21:52:30,254 [INFO] Press Ctrl+C to stop.
+2026-01-22 21:52:30,366 [INFO] Idle for 3289s. Syncing changes...
+2026-01-22 21:52:30,547 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:52:30']' returned non-zero exit status 128.
+2026-01-22 21:52:40,643 [INFO] Idle for 3299s. Syncing changes...
+2026-01-22 21:52:40,793 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:52:40']' returned non-zero exit status 128.
+2026-01-22 21:52:50,916 [INFO] Idle for 3309s. Syncing changes...
+2026-01-22 21:52:51,113 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:52:51']' returned non-zero exit status 128.
+2026-01-22 21:53:01,251 [INFO] Idle for 3319s. Syncing changes...
+2026-01-22 21:53:01,514 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:53:01']' returned non-zero exit status 128.
+2026-01-22 21:53:11,619 [INFO] Idle for 3330s. Syncing changes...
+2026-01-22 21:53:11,821 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:53:11']' returned non-zero exit status 128.
+2026-01-22 21:53:21,936 [INFO] Idle for 3340s. Syncing changes...
+2026-01-22 21:53:22,157 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:53:22']' returned non-zero exit status 128.
+2026-01-22 21:53:32,288 [INFO] Idle for 3350s. Syncing changes...
+2026-01-22 21:53:32,500 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:53:32']' returned non-zero exit status 128.
+2026-01-22 21:53:42,599 [INFO] Idle for 3361s. Syncing changes...
+2026-01-22 21:53:42,765 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:53:42']' returned non-zero exit status 128.
+2026-01-22 21:53:52,855 [INFO] Idle for 3371s. Syncing changes...
+2026-01-22 21:53:52,986 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:53:52']' returned non-zero exit status 128.
+2026-01-22 21:54:03,083 [INFO] Idle for 3381s. Syncing changes...
+2026-01-22 21:54:03,227 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:54:03']' returned non-zero exit status 128.
+2026-01-22 21:54:13,313 [INFO] Idle for 3391s. Syncing changes...
+2026-01-22 21:54:13,456 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:54:13']' returned non-zero exit status 128.
+2026-01-22 21:54:23,556 [INFO] Idle for 3402s. Syncing changes...
+2026-01-22 21:54:23,716 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:54:23']' returned non-zero exit status 128.
+2026-01-22 21:54:33,817 [INFO] Idle for 3412s. Syncing changes...
+2026-01-22 21:54:33,992 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:54:33']' returned non-zero exit status 128.
+2026-01-22 21:54:44,075 [INFO] Idle for 3422s. Syncing changes...
+2026-01-22 21:54:44,226 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:54:44']' returned non-zero exit status 128.
+2026-01-22 21:54:54,330 [INFO] Idle for 3432s. Syncing changes...
+2026-01-22 21:54:54,465 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:54:54']' returned non-zero exit status 128.
+2026-01-22 21:55:04,558 [INFO] Idle for 3443s. Syncing changes...
+2026-01-22 21:55:04,696 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:55:04']' returned non-zero exit status 128.
+2026-01-22 21:55:14,797 [INFO] Idle for 3453s. Syncing changes...
+2026-01-22 21:55:14,937 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:55:14']' returned non-zero exit status 128.
+2026-01-22 21:55:25,060 [INFO] Idle for 3463s. Syncing changes...
+2026-01-22 21:55:25,219 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:55:25']' returned non-zero exit status 128.
+2026-01-22 21:55:35,307 [INFO] Idle for 3473s. Syncing changes...
+2026-01-22 21:55:35,431 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:55:35']' returned non-zero exit status 128.
+2026-01-22 21:55:45,523 [INFO] Idle for 3484s. Syncing changes...
+2026-01-22 21:55:45,648 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:55:45']' returned non-zero exit status 128.
+2026-01-22 21:55:55,743 [INFO] Idle for 3494s. Syncing changes...
+2026-01-22 21:55:55,914 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:55:55']' returned non-zero exit status 128.
+2026-01-22 21:56:06,008 [INFO] Idle for 3504s. Syncing changes...
+2026-01-22 21:56:06,152 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:56:06']' returned non-zero exit status 128.
+2026-01-22 21:56:16,246 [INFO] Idle for 3514s. Syncing changes...
+2026-01-22 21:56:16,364 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:56:16']' returned non-zero exit status 128.
+2026-01-22 21:56:26,452 [INFO] Idle for 3525s. Syncing changes...
+2026-01-22 21:56:26,600 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:56:26']' returned non-zero exit status 128.
+2026-01-22 21:56:36,698 [INFO] Idle for 3535s. Syncing changes...
+2026-01-22 21:56:36,846 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:56:36']' returned non-zero exit status 128.
+2026-01-22 21:56:46,961 [INFO] Idle for 3545s. Syncing changes...
+2026-01-22 21:56:47,096 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:56:47']' returned non-zero exit status 128.
+2026-01-22 21:56:57,184 [INFO] Idle for 3555s. Syncing changes...
+2026-01-22 21:56:57,326 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:56:57']' returned non-zero exit status 128.
+2026-01-22 21:57:07,427 [INFO] Idle for 3566s. Syncing changes...
+2026-01-22 21:57:07,587 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:57:07']' returned non-zero exit status 128.
+2026-01-22 21:57:17,676 [INFO] Idle for 3576s. Syncing changes...
+2026-01-22 21:57:17,823 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:57:17']' returned non-zero exit status 128.
+2026-01-22 21:57:27,918 [INFO] Idle for 3586s. Syncing changes...
+2026-01-22 21:57:28,044 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:57:27']' returned non-zero exit status 128.
+2026-01-22 21:57:38,148 [INFO] Idle for 3596s. Syncing changes...
+2026-01-22 21:57:38,291 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:57:38']' returned non-zero exit status 128.
+2026-01-22 21:57:48,392 [INFO] Idle for 3607s. Syncing changes...
+2026-01-22 21:57:48,545 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:57:48']' returned non-zero exit status 128.
+2026-01-22 21:57:58,642 [INFO] Idle for 3617s. Syncing changes...
+2026-01-22 21:57:58,795 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:57:58']' returned non-zero exit status 128.
+2026-01-22 21:58:08,912 [INFO] Idle for 3627s. Syncing changes...
+2026-01-22 21:58:09,072 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:58:08']' returned non-zero exit status 128.
+2026-01-22 21:58:19,198 [INFO] Idle for 3637s. Syncing changes...
+2026-01-22 21:58:19,365 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:58:19']' returned non-zero exit status 128.
+2026-01-22 21:58:29,452 [INFO] Idle for 3648s. Syncing changes...
+2026-01-22 21:58:29,599 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:58:29']' returned non-zero exit status 128.
+2026-01-22 21:58:39,695 [INFO] Idle for 3658s. Syncing changes...
+2026-01-22 21:58:39,854 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:58:39']' returned non-zero exit status 128.
+2026-01-22 21:58:49,955 [INFO] Idle for 3668s. Syncing changes...
+2026-01-22 21:58:50,123 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:58:50']' returned non-zero exit status 128.
+2026-01-22 21:59:00,232 [INFO] Idle for 3678s. Syncing changes...
+2026-01-22 21:59:00,469 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:59:00']' returned non-zero exit status 128.
+2026-01-22 21:59:10,547 [INFO] Idle for 3689s. Syncing changes...
+2026-01-22 21:59:10,686 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:59:10']' returned non-zero exit status 128.
+2026-01-22 21:59:20,785 [INFO] Idle for 3699s. Syncing changes...
+2026-01-22 21:59:20,944 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:59:20']' returned non-zero exit status 128.
+2026-01-22 21:59:31,055 [INFO] Idle for 3709s. Syncing changes...
+2026-01-22 21:59:31,188 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:59:31']' returned non-zero exit status 128.
+2026-01-22 21:59:41,268 [INFO] Idle for 3719s. Syncing changes...
+2026-01-22 21:59:41,396 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:59:41']' returned non-zero exit status 128.
+2026-01-22 21:59:51,520 [INFO] Idle for 3730s. Syncing changes...
+2026-01-22 21:59:51,740 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 21:59:51']' returned non-zero exit status 128.
+2026-01-22 22:00:01,880 [INFO] Idle for 3740s. Syncing changes...
+2026-01-22 22:00:02,059 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:00:01']' returned non-zero exit status 128.
+2026-01-22 22:00:12,154 [INFO] Idle for 3750s. Syncing changes...
+2026-01-22 22:00:12,307 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:00:12']' returned non-zero exit status 128.
+2026-01-22 22:00:22,407 [INFO] Idle for 3761s. Syncing changes...
+2026-01-22 22:00:22,523 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:00:22']' returned non-zero exit status 128.
+2026-01-22 22:00:32,625 [INFO] Idle for 3771s. Syncing changes...
+2026-01-22 22:00:32,759 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:00:32']' returned non-zero exit status 128.
+2026-01-22 22:00:42,860 [INFO] Idle for 3781s. Syncing changes...
+2026-01-22 22:00:43,016 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:00:42']' returned non-zero exit status 128.
+2026-01-22 22:00:53,098 [INFO] Idle for 3791s. Syncing changes...
+2026-01-22 22:00:53,237 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:00:53']' returned non-zero exit status 128.
+2026-01-22 22:01:03,324 [INFO] Idle for 3801s. Syncing changes...
+2026-01-22 22:01:03,447 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:01:03']' returned non-zero exit status 128.
+2026-01-22 22:01:13,545 [INFO] Idle for 3812s. Syncing changes...
+2026-01-22 22:01:13,684 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:01:13']' returned non-zero exit status 128.
+2026-01-22 22:01:23,784 [INFO] Idle for 3822s. Syncing changes...
+2026-01-22 22:01:23,939 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:01:23']' returned non-zero exit status 128.
+2026-01-22 22:01:34,033 [INFO] Idle for 3832s. Syncing changes...
+2026-01-22 22:01:34,173 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:01:34']' returned non-zero exit status 128.
+2026-01-22 22:01:44,260 [INFO] Idle for 3842s. Syncing changes...
+2026-01-22 22:01:44,385 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:01:44']' returned non-zero exit status 128.
+2026-01-22 22:01:54,475 [INFO] Idle for 3853s. Syncing changes...
+2026-01-22 22:01:54,658 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:01:54']' returned non-zero exit status 128.
+2026-01-22 22:02:04,768 [INFO] Idle for 3863s. Syncing changes...
+2026-01-22 22:02:04,905 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:02:04']' returned non-zero exit status 128.
+2026-01-22 22:02:14,982 [INFO] Idle for 3873s. Syncing changes...
+2026-01-22 22:02:15,101 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:02:15']' returned non-zero exit status 128.
+2026-01-22 22:02:25,210 [INFO] Idle for 3883s. Syncing changes...
+2026-01-22 22:02:25,378 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:02:25']' returned non-zero exit status 128.
+2026-01-22 22:02:35,467 [INFO] Idle for 3894s. Syncing changes...
+2026-01-22 22:02:35,613 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:02:35']' returned non-zero exit status 128.
+2026-01-22 22:02:45,712 [INFO] Idle for 3904s. Syncing changes...
+2026-01-22 22:02:45,878 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:02:45']' returned non-zero exit status 128.
+2026-01-22 22:02:55,973 [INFO] Idle for 3914s. Syncing changes...
+2026-01-22 22:02:56,104 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:02:56']' returned non-zero exit status 128.
+2026-01-22 22:03:06,201 [INFO] Idle for 3924s. Syncing changes...
+2026-01-22 22:03:06,349 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:03:06']' returned non-zero exit status 128.
+2026-01-22 22:03:16,451 [INFO] Idle for 3935s. Syncing changes...
+2026-01-22 22:03:16,572 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:03:16']' returned non-zero exit status 128.
+2026-01-22 22:03:26,672 [INFO] Idle for 3945s. Syncing changes...
+2026-01-22 22:03:26,809 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:03:26']' returned non-zero exit status 128.
+2026-01-22 22:03:37,113 [INFO] Idle for 3955s. Syncing changes...
+2026-01-22 22:03:37,675 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:03:37']' returned non-zero exit status 128.
+2026-01-22 22:03:47,769 [INFO] Idle for 3966s. Syncing changes...
+2026-01-22 22:03:47,913 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:03:47']' returned non-zero exit status 128.
+2026-01-22 22:03:58,017 [INFO] Idle for 3976s. Syncing changes...
+2026-01-22 22:03:58,169 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:03:58']' returned non-zero exit status 128.
+2026-01-22 22:04:08,290 [INFO] Idle for 3986s. Syncing changes...
+2026-01-22 22:04:08,508 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:04:08']' returned non-zero exit status 128.
+2026-01-22 22:04:18,601 [INFO] Idle for 3997s. Syncing changes...
+2026-01-22 22:04:18,758 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:04:18']' returned non-zero exit status 128.
+2026-01-22 22:04:28,865 [INFO] Idle for 4007s. Syncing changes...
+2026-01-22 22:04:29,024 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:04:28']' returned non-zero exit status 128.
+2026-01-22 22:04:39,144 [INFO] Idle for 4017s. Syncing changes...
+2026-01-22 22:04:39,310 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:04:39']' returned non-zero exit status 128.
+2026-01-22 22:04:49,437 [INFO] Idle for 4028s. Syncing changes...
+2026-01-22 22:04:49,656 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:04:49']' returned non-zero exit status 128.
+2026-01-22 22:04:59,786 [INFO] Idle for 4038s. Syncing changes...
+2026-01-22 22:04:59,921 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:04:59']' returned non-zero exit status 128.
+2026-01-22 22:05:10,015 [INFO] Idle for 4048s. Syncing changes...
+2026-01-22 22:05:10,169 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:05:10']' returned non-zero exit status 128.
+2026-01-22 22:05:20,294 [INFO] Idle for 4058s. Syncing changes...
+2026-01-22 22:05:20,439 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:05:20']' returned non-zero exit status 128.
+2026-01-22 22:05:30,542 [INFO] Idle for 4069s. Syncing changes...
+2026-01-22 22:05:30,684 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:05:30']' returned non-zero exit status 128.
+2026-01-22 22:05:40,825 [INFO] Idle for 4079s. Syncing changes...
+2026-01-22 22:05:40,988 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:05:40']' returned non-zero exit status 128.
+2026-01-22 22:05:51,190 [INFO] Idle for 4089s. Syncing changes...
+2026-01-22 22:05:51,416 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:05:51']' returned non-zero exit status 128.
+2026-01-22 22:06:01,508 [INFO] Idle for 4100s. Syncing changes...
+2026-01-22 22:06:01,621 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:06:01']' returned non-zero exit status 128.
+2026-01-22 22:06:11,727 [INFO] Idle for 4110s. Syncing changes...
+2026-01-22 22:06:11,854 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:06:11']' returned non-zero exit status 128.
+2026-01-22 22:06:21,952 [INFO] Idle for 4120s. Syncing changes...
+2026-01-22 22:06:22,104 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:06:22']' returned non-zero exit status 128.
+2026-01-22 22:06:32,168 [INFO] Idle for 4130s. Syncing changes...
+2026-01-22 22:06:32,273 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:06:32']' returned non-zero exit status 128.
+2026-01-22 22:06:42,367 [INFO] Idle for 4141s. Syncing changes...
+2026-01-22 22:06:42,498 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:06:42']' returned non-zero exit status 128.
+2026-01-22 22:06:52,596 [INFO] Idle for 4151s. Syncing changes...
+2026-01-22 22:06:52,735 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:06:52']' returned non-zero exit status 128.
+2026-01-22 22:07:02,835 [INFO] Idle for 4161s. Syncing changes...
+2026-01-22 22:07:02,958 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:07:02']' returned non-zero exit status 128.
+2026-01-22 22:07:13,061 [INFO] Idle for 4171s. Syncing changes...
+2026-01-22 22:07:13,210 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:07:13']' returned non-zero exit status 128.
+2026-01-22 22:07:23,320 [INFO] Idle for 4181s. Syncing changes...
+2026-01-22 22:07:23,466 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:07:23']' returned non-zero exit status 128.
+2026-01-22 22:07:33,555 [INFO] Idle for 4192s. Syncing changes...
+2026-01-22 22:07:33,705 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:07:33']' returned non-zero exit status 128.
+2026-01-22 22:07:43,791 [INFO] Idle for 4202s. Syncing changes...
+2026-01-22 22:07:43,935 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:07:43']' returned non-zero exit status 128.
+2026-01-22 22:07:54,023 [INFO] Idle for 4212s. Syncing changes...
+2026-01-22 22:07:54,153 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:07:54']' returned non-zero exit status 128.
+2026-01-22 22:08:04,246 [INFO] Idle for 4222s. Syncing changes...
+2026-01-22 22:08:04,400 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:08:04']' returned non-zero exit status 128.
+2026-01-22 22:08:14,513 [INFO] Idle for 4233s. Syncing changes...
+2026-01-22 22:08:14,757 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:08:14']' returned non-zero exit status 128.
+2026-01-22 22:08:24,851 [INFO] Idle for 4243s. Syncing changes...
+2026-01-22 22:08:24,994 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:08:24']' returned non-zero exit status 128.
+2026-01-22 22:08:35,097 [INFO] Idle for 4253s. Syncing changes...
+2026-01-22 22:08:35,236 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:08:35']' returned non-zero exit status 128.
+2026-01-22 22:08:45,340 [INFO] Idle for 4264s. Syncing changes...
+2026-01-22 22:08:45,499 [ERROR] Sync failed: Command '['git', 'commit', '-m', 'Auto sync: 2026-01-22 22:08:45']' returned non-zero exit status 128.
+2026-01-22 23:56:44,741 - INFO - Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-22 23:56:44,742 - INFO - Idle Threshold: 60s
+2026-01-22 23:56:44,743 - INFO - Press Ctrl+C to stop.
+2026-01-22 23:56:44,839 - INFO - Changes detected. Idle for 10743s. Syncing...
+2026-01-22 23:56:44,934 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-22 23:56:44,977 - INFO - Pushing to remote...
+2026-01-22 23:56:45,024 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-22 23:56:45,024 - ERROR - Push failed. You may need to run with --repair.
+2026-01-22 23:56:50,100 - INFO - Changes detected. Idle for 10748s. Syncing...
+2026-01-22 23:56:50,199 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-22 23:56:50,244 - INFO - Pushing to remote...
+2026-01-22 23:56:50,288 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-22 23:56:50,288 - ERROR - Push failed. You may need to run with --repair.
+2026-01-22 23:56:55,359 - INFO - Changes detected. Idle for 10754s. Syncing...
+2026-01-22 23:56:55,454 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-22 23:56:55,491 - INFO - Pushing to remote...
+2026-01-22 23:56:55,529 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-22 23:56:55,530 - ERROR - Push failed. You may need to run with --repair.
+2026-01-22 23:57:00,613 - INFO - Changes detected. Idle for 10759s. Syncing...
+2026-01-22 23:57:00,711 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-22 23:57:00,749 - INFO - Pushing to remote...
+2026-01-22 23:57:00,783 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-22 23:57:00,783 - ERROR - Push failed. You may need to run with --repair.
+2026-01-22 23:57:05,871 - INFO - Changes detected. Idle for 10764s. Syncing...
+2026-01-22 23:57:06,011 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-22 23:57:06,065 - INFO - Pushing to remote...
+2026-01-22 23:57:06,132 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-22 23:57:06,133 - ERROR - Push failed. You may need to run with --repair.
+2026-01-22 23:57:11,209 - INFO - Changes detected. Idle for 10769s. Syncing...
+2026-01-22 23:57:11,312 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-22 23:57:11,353 - INFO - Pushing to remote...
+2026-01-22 23:57:11,389 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-22 23:57:11,390 - ERROR - Push failed. You may need to run with --repair.
+2026-01-22 23:57:14,500 - INFO - Stopping auto-sync.
+2026-01-23 00:08:28,098 - INFO - Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-23 00:08:28,098 - INFO - Idle Threshold: 60s
+2026-01-23 00:08:28,098 - INFO - Press Ctrl+C to stop.
+2026-01-23 00:08:28,149 - INFO - Changes detected. Idle for 11446s. Syncing...
+2026-01-23 00:08:28,236 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:08:28,278 - INFO - Pushing to remote...
+2026-01-23 00:08:28,311 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:08:28,311 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:08:33,400 - INFO - Changes detected. Idle for 11452s. Syncing...
+2026-01-23 00:08:33,492 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:08:33,531 - INFO - Pushing to remote...
+2026-01-23 00:08:33,569 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:08:33,569 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:08:38,640 - INFO - Changes detected. Idle for 11457s. Syncing...
+2026-01-23 00:08:38,764 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:08:38,815 - INFO - Pushing to remote...
+2026-01-23 00:08:38,866 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:08:38,866 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:08:43,992 - INFO - Changes detected. Idle for 11462s. Syncing...
+2026-01-23 00:08:44,133 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:08:44,178 - INFO - Pushing to remote...
+2026-01-23 00:08:44,239 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:08:44,239 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:08:49,336 - INFO - Changes detected. Idle for 11468s. Syncing...
+2026-01-23 00:08:49,438 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:08:49,485 - INFO - Pushing to remote...
+2026-01-23 00:08:49,539 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:08:49,540 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:08:54,653 - INFO - Changes detected. Idle for 11473s. Syncing...
+2026-01-23 00:08:54,821 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:08:54,881 - INFO - Pushing to remote...
+2026-01-23 00:08:54,924 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:08:54,925 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:09:00,031 - INFO - Changes detected. Idle for 11478s. Syncing...
+2026-01-23 00:09:00,186 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:09:00,252 - INFO - Pushing to remote...
+2026-01-23 00:09:00,312 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:09:00,312 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:09:05,428 - INFO - Changes detected. Idle for 11484s. Syncing...
+2026-01-23 00:09:05,673 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:09:05,715 - INFO - Pushing to remote...
+2026-01-23 00:09:05,767 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:09:05,768 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:09:10,864 - INFO - Changes detected. Idle for 11489s. Syncing...
+2026-01-23 00:09:10,996 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:09:11,042 - INFO - Pushing to remote...
+2026-01-23 00:09:11,103 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:09:11,104 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:09:16,205 - INFO - Changes detected. Idle for 11494s. Syncing...
+2026-01-23 00:09:16,344 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:09:16,400 - INFO - Pushing to remote...
+2026-01-23 00:09:16,449 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:09:16,449 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:09:21,539 - INFO - Changes detected. Idle for 11500s. Syncing...
+2026-01-23 00:09:21,676 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:09:21,741 - INFO - Pushing to remote...
+2026-01-23 00:09:21,788 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:09:21,788 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:09:26,882 - INFO - Changes detected. Idle for 11505s. Syncing...
+2026-01-23 00:09:27,023 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:09:27,077 - INFO - Pushing to remote...
+2026-01-23 00:09:27,126 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:09:27,126 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:09:32,213 - INFO - Changes detected. Idle for 11510s. Syncing...
+2026-01-23 00:09:32,322 - ERROR - Git error: Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'cg102@寬的寬的.(none)')
+2026-01-23 00:09:32,370 - INFO - Pushing to remote...
+2026-01-23 00:09:32,410 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:09:32,411 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:09:36,298 - INFO - Stopping auto-sync.
+2026-01-23 00:10:31,900 - INFO - Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-23 00:10:31,900 - INFO - Idle Threshold: 60s
+2026-01-23 00:10:31,901 - INFO - Press Ctrl+C to stop.
+2026-01-23 00:10:31,978 - WARNING - Git identity not configured.
+2026-01-23 00:10:54,879 - INFO - Git identity configured successfully.
+2026-01-23 00:10:54,945 - INFO - Changes detected. Idle for 11593s. Syncing...
+2026-01-23 00:10:59,167 - INFO - Pushing to remote...
+2026-01-23 00:10:59,227 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:10:59,227 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:11:23,700 - INFO - Stopping auto-sync.
+2026-01-23 00:11:36,328 - INFO - Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-23 00:11:36,328 - INFO - Idle Threshold: 60s
+2026-01-23 00:11:36,328 - INFO - Press Ctrl+C to stop.
+2026-01-23 00:18:57,741 - INFO - Stopping auto-sync.
+2026-01-23 00:49:59,560 - INFO - Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-23 00:49:59,561 - INFO - Idle Threshold: 60s
+2026-01-23 00:49:59,562 - INFO - Press Ctrl+C to stop.
+2026-01-23 00:49:59,717 - INFO - Changes detected. Waiting for idle (60s)...
+2026-01-23 00:50:19,954 - INFO - Changes detected. Idle for 63s. Syncing...
+2026-01-23 00:50:21,926 - INFO - Pushing to remote...
+2026-01-23 00:50:21,980 - ERROR - Git error: fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+2026-01-23 00:50:21,980 - ERROR - Push failed. You may need to run with --repair.
+2026-01-23 00:50:50,460 - INFO - Stopping auto-sync.
+2026-01-23 00:51:06,356 - INFO - Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-23 00:51:06,357 - INFO - Idle Threshold: 60s
+2026-01-23 00:51:06,357 - INFO - Press Ctrl+C to stop.
+2026-01-23 00:56:24,317 - INFO - Stopping auto-sync.
+2026-01-23 01:16:44,892 - INFO - Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-23 01:16:44,892 - INFO - Idle Threshold: 60s
+2026-01-23 01:16:44,893 - INFO - Press Ctrl+C to stop.
+2026-01-23 01:16:45,142 - INFO - Changes detected. Waiting for idle (60s)...
+2026-01-23 01:23:27,631 - INFO - Stopping auto-sync.
+2026-01-23 01:23:47,327 - INFO - Monitoring: C:\Users\cg102\Documents\Obsidian Vault
+2026-01-23 01:23:47,328 - INFO - Idle Threshold: 60s
+2026-01-23 01:23:47,328 - INFO - Press Ctrl+C to stop.
+2026-01-23 01:23:47,502 - INFO - Changes detected. Waiting for idle (60s)...
+2026-01-23 01:27:07,230 - INFO - Stopping auto-sync.
+2026-01-23 01:30:45,679 - INFO - Starting connection repair...
+2026-01-23 01:30:45,679 - INFO - 1. Clearing Git proxy settings...
+2026-01-23 01:30:45,806 - INFO - 2. Setting push.autoSetupRemote to true...
+2026-01-23 01:30:45,862 - INFO - 3. Resetting remote URL to: https://github.com/stanley-create/Notebook.git
+2026-01-23 01:30:45,944 - INFO - 4. Attempting to push with upstream tracking...
+2026-01-23 01:32:56,938 - INFO - Conflict detected or push failed. Running rebase...
+2026-01-23 01:32:56,981 - INFO - Retrying push...
+2026-01-23 01:34:30,397 - WARNING - Repair finished, but push still failing: Command '['git', 'push']' returned non-zero exit status 1.
+2026-01-23 01:36:50,355 - INFO - Starting connection repair...
+2026-01-23 01:36:50,355 - INFO - 1. Clearing Git proxy settings...
+2026-01-23 01:36:50,452 - INFO - 2. Setting push.autoSetupRemote to true...
+2026-01-23 01:36:50,510 - INFO - 3. Resetting remote URL to: https://github.com/stanley-create/Notebook.git
+2026-01-23 01:36:50,596 - INFO - 4. Attempting to push with upstream tracking...
+2026-01-23 01:40:39,088 - INFO - Standard push failed (Command '['git', 'push', '--set-upstream', 'origin', 'main']' returned non-zero exit status 1.). Attempting to sync with remote history...
+2026-01-23 01:40:39,089 - INFO - Pulling remote changes (allowing unrelated histories)...
+2026-01-23 01:40:39,155 - INFO - Retrying push...
+2026-01-23 01:46:51,364 - ERROR - Repair failed: Command '['git', 'push', '-u', 'origin', 'main']' returned non-zero exit status 1.
+2026-01-23 01:46:51,365 - WARNING - TIP: Check if your GitHub repository is initialized and your internet connection is stable.
