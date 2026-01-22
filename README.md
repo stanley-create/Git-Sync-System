@@ -34,36 +34,61 @@ To have this run automatically when you log in:
 1.  Open a terminal in this folder.
 2.  Run: `python sync.py --install-startup`
 
-## INTEGRATION: Run via Obsidian (Optional)
-You can control this script directly from Obsidian using the **Shell Commands** plugin.
+# Setting up Obsidian Auto-Sync via Shell Commands
 
-### 1. Install Plugin
-1. Open Obsidian **Settings** > **Community plugins**.
-2. Turn off "Restricted Mode".
-3. Browse and install **Shell Commands**. Enable it.
+Follow these steps to ensure your `start.bat` script runs automatically every time you open Obsidian.
 
-### 2. Create Command
-1. Go to **Shell Commands** settings.
-2. Click **New command**.
-3. In the command field, enter the **absolute path** to your `start.bat` file.
-   - **Important**: Wrap the path in quotes if it has spaces.
-   - Example: `"C:\Users\2026\.gemini\antigravity\playground\stellar-sojourner\start.bat"`
-   *(Note: Point to where you downloaded this script, NOT your vault path)*
-4. Set an alias (e.g., "Start Git Sync").
+### Step 1: Install Shell Commands Plugin
 
-### 3. Auto-Run
-1. Click the **Events** tab for that command.
-2. Enable **After Obsidian starts**.
-3. (Optional) Enable **Before Obsidian quits**.
+1. Open **Obsidian Settings**.
+2. Navigate to **Community plugins** and click **Browse**.
+3. Search for **"Shell Commands"** and click **Install**.
+4. After installation, click **Enable**.
 
-### 4. Run Silently (No Window)
-1. Go to the **Output** tab.
-2. Set "Output handler" to **Ignore** (completely silent) or **Notification** (toast message).
+### Step 2: Create the Sync Command
 
-### 5. Manual Sync Button (Bonus)
-1. Install **Customizable Sidebar** plugin.
-2. Add a new command on the sidebar: `Shell Commands: Start Git Sync`.
-3. Now you have a manual sync button!
+1. Go to the **Shell Commands** settings page.
+2. Click the **"Create new command"** button.
+3. In the **Command** field, enter the absolute path to your batch file:
+```text
+"C:\Users\cg102\Git-Sync-System\start.bat"
+```
+*(Note: Keep the double quotes if your path contains spaces.)*
+4. Give it an **Alias** like: `Obsidian Git Auto Sync`.
+
+### Step 3: Configure Execution Events (Triggers)
+
+To make the script run on startup:
+
+1. Click the **Events** icon (lightning bolt symbol) next to your new command.
+2. Click **Add new event**.
+3. Select **"Obsidian starts"** from the list.
+4. This ensures the Python monitoring script starts as soon as you open your vault.
+
+![Shell Event Settings](assets/shell_event_settings.png)
+
+### Step 4: Enable Background Execution (Silent Mode)
+
+To prevent a black CMD window from popping up and interrupting your work:
+
+1. In the command settings, look for **Output handling**.
+2. Set **Output channel** for stdout/stderr to **"Ignore"**.
+3. Set **Output handling mode** to **"Realtime"** to ensure long-running processes are handled correctly.
+
+![Shell Output Settings](assets/shell_output_settings.png)
+
+### Step 5: Verify the Automation
+
+1. Restart your Obsidian.
+2. Check your **Windows Task Manager** (Ctrl + Shift + Esc).
+3. You should see a `python.exe` process running in the background.
+4. Try editing a note, wait for 20-60 seconds, and check your GitHub repository to see if the changes were pushed automatically.
+
+---
+
+### Troubleshooting Tip
+
+If the script doesn't seem to trigger, you can manually run the command once using the **Command Palette** (Ctrl + P) and searching for: `Shell Commands: Execute: Obsidian Git Auto Sync`.
 
 ## Configuration
 Settings are saved to `config.json`.
