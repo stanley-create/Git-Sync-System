@@ -1,12 +1,10 @@
 @echo off
-set "SCRIPT_DIR=%~dp0"
-cd /d "%SCRIPT_DIR%"
-
-if exist config.json (
-    python sync.py
-) else (
-    echo Configuration not found. Starting setup...
-    python sync.py --setup
+title Obsidian Git Sync
+echo Starting Obsidian Git Sync...
+echo.
+python sync.py
+if %errorlevel% neq 0 (
+    echo.
+    echo Script crashed or exited with an error.
+    pause
 )
-
-pause

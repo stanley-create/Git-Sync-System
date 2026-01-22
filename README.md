@@ -1,91 +1,42 @@
-# Obsidian Git Sync
+# Obsidian Git Sync (Enhanced)
 
-A simple, cross-platform (Windows & macOS) Python script to automatically synchronize your Obsidian vault with a GitHub repository.
+A robust, cross-platform (Windows & macOS) Python script to automatically synchronize your Obsidian vault with a GitHub repository.
 
-## Features
-- **Auto-Sync**: Automatically pulls, adds, commits, and pushes changes.
-- **Cross-Platform**: Works on Windows and macOS.
-- **Conflict Avoidance**: Uses `git pull --rebase` to minimize merge commits.
-- **Configurable**: Set custom sync intervals and repository paths.
+## New Features
+- **Smart Idle Detection**: Only checks modified files, significantly improving performance for large vaults.
+- **Robust Logging**: actions are logged to `sync.log`.
+- **Auto-Initialization**: Detects if your vault is not a git repo and helps you set it up.
+- **Background Sync**: Can register itself on Windows Startup.
 
 ## Prerequisites
 - **Python 3.x** installed.
-- **Git** installed and configured (user name, email).
-- An existing **GitHub repository** initialized in your Obsidian vault.
-- SSH keys or Credential Manager configured so `git push` / `git pull` does not ask for a password.
+- **Git** installed and configured.
+- (Optional) A GitHub repository URL if you want to upload to the cloud.
 
-## Installation
-1.  Clone this repository or download the script.
-    ```bash
-    git clone https://github.com/stanley-create/Git-Sync-System.git
-    cd Git-Sync-System
-    ```
+## Quick Start
 
-## Usage (Easy Method)
+1.  **Double-click `start.bat`**.
+2.  The first time you run it, it will **ask you to enter the path** to your Obsidian Vault.
+    - Example: `C:\Users\Name\Documents\MyVault`
+3.  It will also ask for your GitHub repository URL (optional if you haven't linked it yet).
+4.  The script will save your settings and start monitoring.
 
-### Windows
-1.  Double-click **`start.bat`**.
-2.  The first time you run it, it will ask for your **Obsidian Vault path** and settings.
-3.  Future runs will use these saved settings automatically.
+## Run at Startup (Windows)
+To have this run automatically when you log in:
+1.  Open a terminal in this folder.
+2.  Run: `python sync.py --install-startup`
 
-### macOS / Linux
-1.  Double-click **`start.command`** (macOS) or run **`./start.sh`** (Linux/Terminal).
-    *(Note: On first run, you might need to right-click `start.command` and select Open to bypass security warning)*.
-2.  The script will verify your settings and start syncing.
-
-## Usage (Manual / Command Line)
-You can still run the script manually if you prefer:
-
-```bash
-python sync.py --setup
-```
-Or with arguments:
-```bash
-python sync.py [path_to_vault] --idle_threshold 60
-```
-
-### Configuration
-Settings are saved to `config.json`. You can edit this file directly to change your preferences:
+## Configuration
+Settings are saved to `config.json`.
 ```json
 {
-    "repo_path": "C:\\Users\\User\\Documents\\ObsidianVault",
+    "repo_path": "C:\\Users\\cg102\\Documents\\Obsidian Vault",
     "idle_threshold": 60,
-    "interval": 10
+    "remote_url": "https://github.com/your/repo.git"
 }
 ```
 
-## Running in Background
-### Windows
-You can use **Task Scheduler** to run the script at login.
-1.  Open Task Scheduler.
-2.  Create a Basic Task.
-3.  Trigger: "When I log on".
-4.  Action: "Start a program".
-    - Program/script: `pythonw.exe` (Use `pythonw` to run without a window).
-    - Add arguments: `C:\path\to\ObsidianGitSync\sync.py C:\path\to\your\vault --idle_threshold 60`
-    - Start in: `C:\path\to\ObsidianGitSync\`
-
-### macOS
-You can use **cron** or **launchd**.
-**Using Cron:**
-1.  Open terminal and type `crontab -e`.
-2.  Add the line:
-    ```bash
-    @reboot /usr/bin/python3 /path/to/ObsidianGitSync/sync.py /path/to/your/vault &
-    ```
-
-## Logic
-The script runs in a loop (every 10 seconds by default):
-1.  **Check Status**: Looks for local changes.
-2.  **If Clean**:
-    -   `git pull --rebase`: Updates local with remote changes.
-3.  **If Dirty (Changes Detected)**:
-    -   Checks the last modified time of all files.
-    -   Calculates `idle_time`.
-    -   **If idle_time > idle_threshold**:
-        -   `git add .`
-        -   `git commit -m "Auto sync: <timestamp>"`
-        -   `git pull --rebase` (to handle remote changes safely)
-        -   `git push`
-    -   **Else**:
-        -   Waits for user to stop editing (Resets timer if files change again).
+## How it Works
+- **Checks changes**: Every 10 seconds.
+- **Syncs**: If changes are detected and you stop typing for 60 seconds (idle), it commits and pushes.
+- **Conflicts**: Automatically tries `git pull --rebase` to avoid merge conflicts.
