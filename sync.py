@@ -13,6 +13,7 @@ CONFIG_FILE = "config.json"
 LOG_FILE = "sync.log"
 DEFAULT_INTERVAL = 20
 DEFAULT_IDLE_THRESHOLD = 60
+BATCH_SIZE = 500  # Number of files per commit during large/initial sync
 
 # Setup Logging
 logging.basicConfig(
@@ -77,15 +78,20 @@ class GitSync:
                 self.run_git(["remote", "add", "origin", self.remote_url], check=False)
                 logger.info(f"Added remote origin: {self.remote_url}")
             
-            # Initial commit
-            self.run_git(["add", "."])
-            self.run_git(["commit", "-m", "Initial commit from Obsidian Git Sync"], check=False)
-            logger.info("Performed initial commit. Pushing to remote...")
-            try:
-                self.run_git(["push", "-u", "origin", "main"], check=True)
-                logger.info("Initial push successful.")
-            except Exception as e:
-                logger.warning(f"Initial push failed: {e}. It will retry during normal sync.")
+            # Initial commit (using batching)
+            modified_files = self.get_modified_files()
+            if modified_files:
+                logger.info(f"Initial sync: Found {len(modified_files)} files. Starting batch upload...")
+                self.commit_and_push_batches(modified_files)
+            else:
+                # If no files found via status (unlikely for new repo), still try a dummy push
+                self.run_git(["add", "."])
+                self.run_git(["commit", "-m", "Initial commit from Obsidian Git Sync"], check=False)
+                try:
+                    self.run_git(["push", "-u", "origin", "main"], check=True)
+                    logger.info("Initial push successful.")
+                except Exception as e:
+                    logger.warning(f"Initial push failed: {e}. It will retry during normal sync.")
             
             logger.info("Initialization complete.")
 
@@ -175,8 +181,12 @@ class GitSync:
                 logger.info("Pulling remote changes (allowing unrelated histories)...")
                 self.run_git(["pull", "origin", "main", "--rebase", "--allow-unrelated-histories"], check=False)
                 
-                logger.info("Retrying push...")
-                self.run_git(["push", "-u", "origin", "main"], check=True)
+                logger.info("Retrying push (with batching if needed)...")
+                modified_files = self.get_modified_files()
+                if len(modified_files) > BATCH_SIZE:
+                    self.commit_and_push_batches(modified_files)
+                else:
+                    self.run_git(["push", "-u", "origin", "main"], check=True)
                 logger.info("Repair completed successfully after synchronization!")
             except Exception as final_e:
                 logger.error(f"Repair failed: {final_e}")
@@ -209,8 +219,11 @@ class GitSync:
             idle_time = current_time - last_mtime
 
             if idle_time >= self.idle_threshold:
-                logger.info(f"Idle for {int(idle_time)}s. Syncing changes...")
-                self.commit_and_push()
+                logger.info(f"Idle for {int(idle_time)}s. Syncing {len(modified_files)} changes...")
+                if len(modified_files) > BATCH_SIZE:
+                    self.commit_and_push_batches(modified_files)
+                else:
+                    self.commit_and_push()
                 self.pending_changes_since = None
             else:
                 if self.pending_changes_since is None:
@@ -227,7 +240,7 @@ class GitSync:
         try:
             self.run_git(["add", "."])
             timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-            self.run_git(["commit", "-m", f"Auto sync: {timestamp}"], check=False) # check=False in case no changes to commit
+            self.run_git(["commit", "-m", f"Auto sync: {timestamp}"], check=False)
             
             self.pull_changes()
             
@@ -236,6 +249,33 @@ class GitSync:
             logger.info("Push successful.")
         except Exception as e:
             logger.error(f"Sync failed: {e}")
+
+    def commit_and_push_batches(self, files):
+        """Commits and pushes files in chunks to avoid timeouts/buffer errors."""
+        total_files = len(files)
+        chunks = [files[i:i + BATCH_SIZE] for i in range(0, total_files, BATCH_SIZE)]
+        num_batches = len(chunks)
+        
+        logger.info(f"Dividing into {num_batches} batches...")
+        
+        for i, chunk in enumerate(chunks, 1):
+            try:
+                logger.info(f"Processing batch {i}/{num_batches} ({len(chunk)} files)...")
+                # Use individual add for each file in chunk to be safe
+                for file in chunk:
+                    self.run_git(["add", file], check=False)
+                
+                timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                self.run_git(["commit", "-m", f"Batch sync {i}/{num_batches}: {timestamp}"])
+                
+                # Push each batch
+                logger.info(f"Pushing batch {i}/{num_batches}...")
+                self.run_git(["push", "-u", "origin", "main"])
+                logger.info(f"Batch {i} uploaded successfully.")
+            except Exception as e:
+                logger.error(f"Failed at batch {i}: {e}")
+                logger.warning("Pausing for 5 seconds before next attempt...")
+                time.sleep(5)
 
     def pull_changes(self):
         try:
