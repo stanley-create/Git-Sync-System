@@ -13,6 +13,12 @@ A robust, cross-platform (Windows & macOS) Python script to automatically synchr
 - **Git** installed and configured.
 - (Optional) A GitHub repository URL if you want to upload to the cloud.
 
+## Installation
+To use this system, you first need to download the code:
+```bash
+git clone https://github.com/stanley-create/Git-Sync-System
+```
+
 ## Quick Start
 
 1.  **Double-click `start.bat`**.
