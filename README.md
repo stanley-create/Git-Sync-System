@@ -51,12 +51,17 @@ You can control this script directly from Obsidian using the **Shell Commands** 
 
 ### 3. Auto-Run
 1. Click the **Events** tab for that command.
-2. Enable **After Obsidian starts**.
-3. (Optional) Enable **Before Obsidian quits**.
+3. Select **"Obsidian starts"** from the list.
+4. This ensures the Python monitoring script starts as soon as you open your vault.
+
+![Shell Event Settings](assets/shell_event_settings.png)
 
 ### 4. Run Silently (No Window)
 1. Go to the **Output** tab.
-2. Set "Output handler" to **Ignore** (completely silent) or **Notification** (toast message).
+2. Set **Output channel** to **"Ignore"** or **"Status bar message"**.
+3. Ensure the execution is set to run in the **Background**.
+
+![Shell Output Settings](assets/shell_output_settings.png)
 
 ### 5. Manual Sync Button (Bonus)
 1. Install **Customizable Sidebar** plugin.
