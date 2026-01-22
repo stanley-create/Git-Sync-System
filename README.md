@@ -73,6 +73,21 @@ Settings are saved to `config.json`.
 }
 ```
 
+## Troubleshooting
+
+### 1. GitHub Repository is Empty?
+If you just set up the system and your GitHub repository is still empty:
+1. Make sure you have **pushed** the initial files. The script handles this after the first "idle period" (60 seconds of no typing).
+2. If it still doesn't upload, try running `git push -u origin main` manually inside your Vault folder once.
+
+### 2. Network / Proxy Issues (500 Error)
+If you encounter network errors or the sync fails to connect, try clearing your Git proxy settings:
+```bash
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+Then try running `start.bat` again.
+
 ## How it Works
 - **Checks changes**: Every 10 seconds.
 - **Syncs**: If changes are detected and you stop typing for 60 seconds (idle), it commits and pushes.

@@ -78,7 +78,14 @@ class GitSync:
             # Initial commit
             self.run_git(["add", "."])
             self.run_git(["commit", "-m", "Initial commit by Git-Sync-System"], check=False)
-            logger.info("Performed initial commit.")
+            logger.info("Performed initial commit. Pushing to remote...")
+            try:
+                self.run_git(["push", "-u", "origin", "main"], check=False)
+                logger.info("Initial push successful.")
+            except Exception as e:
+                logger.warning(f"Initial push failed: {e}. It will retry during normal sync.")
+            
+            logger.info("Initialization complete.")
 
         except Exception as e:
             logger.error(f"Failed to initialize repository: {e}")
