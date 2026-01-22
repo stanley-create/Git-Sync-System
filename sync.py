@@ -46,8 +46,11 @@ class GitSync:
             )
             return result.stdout.strip()
         except subprocess.CalledProcessError as e:
-            if "up to date" not in e.stderr and "no changes" not in e.stderr:
-                logger.debug(f"Git command failed: {' '.join(args)} | Error: {e.stderr.strip()}")
+            error_msg = e.stderr.strip()
+            if "up to date" not in error_msg and "no changes" not in error_msg:
+                logger.debug(f"Git command failed: {' '.join(args)} | Error: {error_msg}")
+            # Attach stderr to the exception so callers can see it
+            e.args = (e.args[0], f"Error: {error_msg}")
             raise e
         except Exception as e:
             logger.error(f"Unexpected error running git: {e}")
@@ -147,6 +150,10 @@ class GitSync:
         logger.info("1. Clearing Git proxy settings...")
         subprocess.run(["git", "config", "--global", "--unset", "http.proxy"], check=False)
         subprocess.run(["git", "config", "--global", "--unset", "https.proxy"], check=False)
+        
+        # 1b. Increase postBuffer for large pushes (helps with connection resets)
+        logger.info("1b. Increasing Git postBuffer to 500MB...")
+        subprocess.run(["git", "config", "--global", "http.postBuffer", "524288000"], check=False)
         
         # 2. Set autoSetupRemote
         logger.info("2. Setting push.autoSetupRemote to true...")
