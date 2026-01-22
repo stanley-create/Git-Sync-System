@@ -277,20 +277,29 @@ def main():
     parser.add_argument("repo_path", nargs="?", help="Path to the Obsidian vault.")
     parser.add_argument("--idle_threshold", type=int, help="Seconds of inactivity before syncing.")
     
+    parser.add_argument("--non-interactive", action="store_true", help="Skip all input prompts (best for background/cron).")
+    
     args = parser.parse_args()
     config = load_config()
 
+    # Resolve Configuration
     repo_path = args.repo_path or config.get("repo_path")
     idle_threshold = args.idle_threshold or config.get("idle_threshold", 60)
     remote_url = config.get("remote_url")
 
-    if not repo_path or args.setup:
-        print("--- Obsidian Git Sync Setup ---")
-        if not repo_path:
-            while not repo_path:
-                repo_path = input("Enter the absolute path to your Obsidian vault: ").strip()
+    if not repo_path:
+        if args.non_interactive:
+            logger.error("No vault path configured and running in non-interactive mode. Exiting.")
+            return
         
-        remote_url = input(f"Enter GitHub Remote URL [{remote_url or 'None'}]: ").strip() or remote_url
+        print("--- Obsidian Git Sync Setup ---")
+        while not repo_path:
+            repo_path = input("Enter the absolute path to your Obsidian vault: ").strip()
+            if not repo_path:
+                print("Path cannot be empty.")
+        
+        if not remote_url:
+            remote_url = input("Enter GitHub Remote URL (leave empty if already set): ").strip()
         
         config = {
             "repo_path": repo_path,
@@ -306,6 +315,10 @@ def main():
         return
 
     if not syncer.is_git_repo():
+        if args.non_interactive:
+            logger.error(f"{repo_path} is not a git repository. Cannot initialize in non-interactive mode.")
+            return
+            
         logger.warning(f"{repo_path} is not a git repository.")
         choice = input("Do you want to initialize it now? [y/N]: ").strip().lower()
         if choice == 'y':

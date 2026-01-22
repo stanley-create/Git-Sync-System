@@ -1,5 +1,8 @@
 @echo off
 title Obsidian Git Sync
+
+if "%~1"=="--silent" goto start_sync_silent
+
 :menu
 cls
 echo ========================================
@@ -31,6 +34,11 @@ echo Running full repair...
 python sync.py --repair
 pause
 goto menu
+
+:start_sync_silent
+echo Running in silent background mode...
+python sync.py --non-interactive
+exit /b
 
 :start_sync
 echo Starting Obsidian Git Sync...
