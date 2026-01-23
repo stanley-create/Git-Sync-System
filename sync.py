@@ -145,6 +145,9 @@ class GitSync:
                     name = input("Enter your GitHub Username: ").strip()
                     subprocess.run(["git", "config", "--global", "user.name", name], check=True)
                 logger.info("Git identity configured successfully.")
+            
+            # Ensure Git doesn't quote non-ASCII filenames (fixes sync hang with Chinese names)
+            self.run_git(["config", "core.quotepath", "false"], check=False)
         except Exception as e:
             logger.error(f"Error checking identity: {e}")
 
@@ -214,7 +217,12 @@ class GitSync:
             last_mtime = self.get_latest_mtime(modified_files)
             
             if last_mtime == 0:
-                last_mtime = current_time
+                # If we can't get mtime (e.g. all files deleted), 
+                # use the time we first detected the change to trigger sync.
+                if self.pending_changes_since:
+                    last_mtime = self.pending_changes_since
+                else:
+                    last_mtime = current_time
 
             idle_time = current_time - last_mtime
 
