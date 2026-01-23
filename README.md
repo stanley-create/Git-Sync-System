@@ -50,7 +50,7 @@ You can control this script directly from Obsidian using the **Shell Commands** 
 2. Click **New command**.
 3. In the command field, enter the **absolute path** to your `start.bat` file.
    - **Important**: Wrap the path in quotes if it has spaces.
-   - Example: `"C:\Users\<YourName>\Documents\Git-Sync-System\start.bat" --silent`
+   - Example: `cmd /c "cd /d "C:\Users\<YourName>\Git-Sync-System" && start.bat --silent"`
 4. Set an alias (e.g., "Start Git Sync").
 
 ### 3. Configure Events (Triggers)
